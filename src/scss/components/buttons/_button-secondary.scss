@@ -1,0 +1,15 @@
+/*
+ # Button secondary color
+ */
+
+.btn--secondary {
+    background-color: $trv-maincolor-04-light;
+    border: 1px solid $trv-maincolor-04-light;
+    border-bottom: 1px solid $trv-maincolor-04;
+    @include outline-inset($white);
+    @include button-pseudos(
+        $trv-maincolor-04,
+        $trv-maincolor-04-light,
+        $trv-maincolor-04-very-light
+    );
+}

@@ -1,0 +1,98 @@
+/*
+ * # Font stack declaration
+ */
+/* stylelint-disable value-keyword-case  */
+/// font-family
+/// @type string
+/// @group fonts
+$font-family: Arial, Helvetica, Sans, Sans-Serif, 'Sans Serif' !default;
+/* stylelint-enable */
+
+/*
+ * # Line heights
+ */
+
+/// line-height-small
+/// @type height
+/// @group settings
+$line-height-small: 1.25 !default;
+/// line-height-big
+/// @type height
+/// @group settings
+$line-height-big: 1.5 !default;
+
+/*
+ * # Font sizes
+ */
+/// default font-smoothing
+/// @type string
+/// @group fonts
+$font-smoothing: antialiased !default;
+/// font-size-base
+/// @type height
+/// @group fonts
+$font-size-base: 100% !default;
+/// font-size-4xs
+/// @type height
+/// @group fonts
+$font-size-4xs: 11px !default;
+/// font-size-3xs
+/// @type height
+/// @group fonts
+$font-size-3xs: 12px !default;
+/// font-size-xxs
+/// @type height
+/// @group fonts
+$font-size-xxs: 14px !default;
+/// font-size-xs
+/// @type height
+/// @group fonts
+$font-size-xs: 16px !default;
+/// font-size-s
+/// @type height
+/// @group fonts
+$font-size-s: 20px !default;
+/// font-size-m
+/// @type height
+/// @group fonts
+$font-size-m: 24px !default;
+/// font-size-l
+/// @type height
+/// @group fonts
+$font-size-l: 32px !default;
+/// font-size-xl
+/// @type height
+/// @group fonts
+$font-size-xl: 44px !default;
+/// font-size-xxl
+/// @type height
+/// @group fonts
+$font-size-xxl: 56px !default;
+/// font-size-3xl
+/// @type height
+/// @group fonts
+$font-size-3xl: 68px !default;
+/// font-size-4xl
+/// @type height
+/// @group fonts
+$font-size-4xl: 80px !default;
+
+/*
+ * # Headings
+ */
+/// headings-font-family
+/// @type string
+/// @group fonts
+$headings-font-family: inherit !default;
+/// headings-font-weight
+/// @type string
+/// @group fonts
+$headings-font-weight: bold !default;
+/// headings-line-height
+/// @type string
+/// @group fonts
+$headings-line-height: $line-height-small !default;
+/// headings-color
+/// @type string
+/// @group fonts
+$headings-color: inherit !default;

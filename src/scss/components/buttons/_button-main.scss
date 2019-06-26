@@ -1,0 +1,72 @@
+/*
+ # Buttons Basic Setup
+ */
+
+// button
+.btn {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden; /* truncate text */
+    margin: $spacing 0;
+    vertical-align: middle;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: $border-radius;
+    white-space: nowrap; /* truncate text */
+    text-overflow: ellipsis; /* truncate text */
+    text-align: center;
+    font-weight: bold;
+    height: auto;
+    text-decoration: none;
+    color: $white;
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+    @include outline-inset;
+
+    @include link-pseudos {
+        color: $white;
+    }
+
+    @include link-pseudos-hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    @include respond-to-min($screen-small) {
+        width: auto;
+    }
+
+    // General btn--disabled placeholder
+    &--disabled {
+        color: $white;
+
+        @include link-pseudos {
+            cursor: not-allowed;
+        }
+    }
+
+    /*
+     * ## Button as regular text link
+     */
+    &--link {
+        color: $trv-maincolor-01;
+
+        @include link-pseudos {
+            color: $trv-maincolor-01;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        &.btn--disabled {
+            color: $trv-maincolor-04-lighter;
+
+            @include link-pseudos {
+                cursor: not-allowed;
+                text-decoration: none;
+            }
+        }
+    }
+}

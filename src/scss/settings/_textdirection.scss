@@ -1,0 +1,20 @@
+/*
+ * # Text Direction
+ */
+
+/// leading value, `left` in LTR, `right` in RTL
+/// @type string
+/// @group rtl
+$leading: left !default;
+/// trailing value, `right` in LTR, `left` in RTL
+/// @type string
+/// @group rtl
+$trailing: right !default;
+/// direction, `left` in LTR, `right` in RTL
+/// @type string
+/// @group rtl
+$dir: ltr !default;
+/// text-direction
+/// @type string
+/// @group rtl
+$text-direction: ltr !default;

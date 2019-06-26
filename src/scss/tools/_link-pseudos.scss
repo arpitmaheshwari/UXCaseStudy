@@ -1,0 +1,70 @@
+/// Generates link-pseudos
+///
+/// @group links
+///
+/// @example scss - Usage
+///   .foo {
+///     @include link-pseudos {
+///       color: $white
+///     }
+///   }
+///
+/// @example scss - output
+///   .foo:link, .foo:visited, .foo:hover, .foo:focus, .foo:active { color: #fff; }
+///
+
+@mixin link-pseudos {
+    &:link,
+    &:visited,
+    &:hover,
+    &:focus,
+    &:active {
+        @content;
+    }
+}
+
+/// Generates link-pseudos hover
+///
+/// @group links
+///
+/// @example scss - Usage
+///   .foo {
+///     @include link-pseudos-hover {
+///       color: $white
+///     }
+///   }
+///
+/// @example scss - output
+///   .foo:hover, .foo:focus, .foo:active, .foo.active { color: #fff; }
+///
+
+@mixin link-pseudos-hover {
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        @content;
+    }
+}
+
+/// Generates link-pseudos hover focus
+///
+/// @group links
+///
+/// @example scss - Usage
+///   .foo {
+///     @include link-pseudos-focus {
+///       color: $white
+///     }
+///   }
+///
+/// @example scss - output
+///   .foo:focus, .foo:active { color: #fff; }
+///
+
+@mixin link-pseudos-focus {
+    &:focus,
+    &:active {
+        @content;
+    }
+}

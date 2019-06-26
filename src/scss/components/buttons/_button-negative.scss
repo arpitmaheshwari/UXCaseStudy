@@ -1,0 +1,16 @@
+/*
+ # Button negative color
+ */
+
+.btn--negative {
+    color: $white;
+    background-color: $trv-maincolor-03;
+    border: 1px solid $trv-maincolor-03;
+    border-bottom: 1px solid $trv-maincolor-03-dark;
+    @include outline-inset($white);
+    @include button-pseudos(
+        $trv-maincolor-03-dark,
+        $trv-maincolor-03,
+        $trv-maincolor-03-very-light
+    );
+}

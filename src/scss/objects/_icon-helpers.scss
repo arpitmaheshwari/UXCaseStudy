@@ -1,0 +1,140 @@
+// Icon helpers
+//
+// .icon-ic                                   - Main icon reset
+// .icon-bg-ic                                - deprecated
+// .mirror-h                                  - Flip icon horizontally using transform
+// .mirror-v                                  - Flip icon vertically using transform
+// .icon-center                               - Horizontally and vertically center background icon or containing SVG
+// .icon-contain                              - Best fit based on W/H for background image or containing SVG
+//
+// Styleguide objects.icons
+
+/**
+ * Main icon reset
+ *
+ * 1. Don't repeat background-image for background icons and fallback.
+ * 2. As SVG and `SPAN.icon-ic` are `inline-block`, inherited line-height can affect position.
+ * 3. By default set SPAN.icon-ic` to inline block in order to avoid WET (write everything twice).
+ * 4. Remove inherited text-indent from icon, cases like -9999999px will remove SVG element.
+ * 5. Buttons with an SVG are not getting focus state if clicked on SVG.
+ */
+.icon-ic {
+    background-repeat: no-repeat; /* 1 */
+    background-position: center; /* 1 */
+    line-height: 0; /* 2 */
+    display: inline-block; /* 3 */
+    text-indent: 0; /* 4 */
+
+    > svg {
+        pointer-events: none; /* 5 */
+    }
+}
+
+/**
+ * Icon helper for icons used on input or other cases
+ * @deprecated
+ */
+.icon-bg-ic {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/**
+ * RTL helper
+ *
+ * 1. Flip icon horizontally using transform (only SVG, fallback is loaded using `background-image`).
+ * 2. Flip icon vertically using transform (only SVG, fallback is loaded using `background-image`).
+
+ */
+.mirror-h {
+    transform: scaleX(-1); /* 1 */
+}
+
+.mirror-v {
+    transform: scaleY(-1); /* 2 */
+}
+
+html[dir='rtl'] .icon-rtl > svg {
+    @extend .mirror-h;
+}
+
+/**
+ * Horizontally and vertically center background icon or containing SVG
+ *
+ * 1. Center background-image fallback icons.
+ * 2. Center horizontally SVG element as it's inline-block.
+ * 3. Create "ghost" pseudo inline-block element with inline-block in order to center it vertically.
+ * 4. Add height 100% to "ghost" element.
+ * 5. Vertically align inline-block SVG element.
+ */
+.icon-center {
+    background-position: center; /* 1 */
+    text-align: center; /* 2 */
+
+    &:before {
+        content: ''; /* 3 */
+        display: inline-block; /* 3 */
+        vertical-align: middle; /* 3 */
+        height: 100%; /* 4 */
+    }
+
+    > svg {
+        vertical-align: middle; /* 5 */
+    }
+}
+
+/**
+ * Icon contain - Best fit based on W/H for background image or containing SVG
+ *
+ * 1. Fallback and background icon contain.
+ * 2. In order to stretch SVG element we have to make sure that parent element
+ *    is having width and height (default: 100%).
+ */
+.icon-contain {
+    background-size: contain; /* 1 */
+    height: 100%; /* 2 */
+    width: 100%; /* 2 */
+
+    > svg {
+        height: 100%; /* 2 */
+        width: 100%; /* 2 */
+    }
+}
+
+.icon {
+    $rotate-icon: (90deg 180deg 270deg);
+
+    @each $degrees in $rotate-icon {
+        &-#{$degrees}-cw {
+            @include is-ltr {
+                > svg {
+                    transform: rotate($degrees);
+                }
+            }
+
+            @include is-rtl {
+                &.icon-rtl {
+                    > svg {
+                        transform: rotate($degrees) scale(-1);
+                    }
+                }
+            }
+        }
+    }
+
+    &-flip {
+        > svg {
+
+            /*rtl:ignore*/
+            transform: scale(-1);
+        }
+
+        @include is-rtl {
+            &.icon-rtl {
+                > svg {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}

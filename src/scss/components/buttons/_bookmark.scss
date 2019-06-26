@@ -1,0 +1,138 @@
+//
+// Bookmark item favorite button
+// ---------------------------------------------------------
+// + hover states
+//
+
+// bookmark is not part of the pattern library but from pricesearch
+.bookmark {
+    &__heart {
+        position: absolute;
+        top: 9px;
+        left: 9px;
+        z-index: 1;
+        height: 40px;
+        width: 38px;
+        overflow: hidden;
+        border: 0;
+        outline: 0;
+        opacity: $opacity-high;
+        background-color: $transparent;
+        background-size: 100%;
+
+        @include respond-to-min($screen-tablet) {
+            top: 7px;
+            left: 7px;
+            width: 44px;
+        }
+    }
+
+    &__icn {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        margin: 3px auto 0;
+        background-size: 100% auto;
+
+        @include respond-to-min($screen-tablet) {
+            width: 24px;
+            height: 24px;
+            margin: 10px auto 0;
+        }
+
+        &--active {
+            display: none;
+        }
+    }
+
+    // Tooltip block start
+    // Note: the order is important at this section.
+    /* Note Kay: these styles are coming from pricesearch's /PriceSearchBundle/Resources/assets/css/includes/item.scss */
+    &__tooltip {
+        display: none;
+
+        @include respond-to-min($screen-small) {
+            position: absolute;
+            top: 21px;
+            left: 44px;
+            width: auto;
+            z-index: 2;
+            height: 20px;
+            padding: 0 ($spacing * 2);
+            border-radius: $border-radius;
+            font-size: $font-size-3xs;
+            line-height: 20px;
+            color: $white;
+            background-color: rgba($black, $opacity-half);
+        }
+    }
+
+    /* Note: In pricesearch's /PriceSearchBundle/Resources/assets/css/includes/item.scss
+     * a lot more styles for various hover/active/just-added states are following here.
+     */
+
+    &:hover ~ .item__image-gallery-entry {
+        opacity: 0;
+    }
+
+    &:hover &__tooltip--add {
+        @include respond-to-min($screen-small) {
+            display: block;
+        }
+    }
+
+    &--active:hover &__tooltip--add {
+        @include respond-to-min($screen-small) {
+            display: none;
+        }
+    }
+
+    &--active:hover &__tooltip--remove {
+        @include respond-to-min($screen-small) {
+            display: block;
+        }
+    }
+
+    &--open:hover &__tooltip {
+        @include respond-to-min($screen-small) {
+            display: none;
+        }
+    }
+
+    &--just-added &__tooltip,
+    &--just-added:hover &__tooltip {
+        @include respond-to-min($screen-small) {
+            display: none;
+        }
+    }
+
+    &--just-added &__tooltip--added,
+    &--just-added:hover &__tooltip--added {
+        @include respond-to-min($screen-small) {
+            display: block;
+        }
+    }
+
+    // Note: the order is important in this section.
+    // Tooltip block finish
+    &--active {
+        border-radius: 30px;
+        animation: beat 1s 1 both;
+
+        @include respond-to-min($screen-small) {
+            border-radius: 0;
+            animation: none;
+        }
+    }
+
+    &--active &__heart {
+        opacity: $opacity-full;
+    }
+
+    &:hover &__icn,
+    &--active &__icn {
+        .svg-color--primary {
+            fill: $trv-maincolor-03;
+        }
+    }
+}

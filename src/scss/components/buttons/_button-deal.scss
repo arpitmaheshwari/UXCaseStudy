@@ -1,0 +1,15 @@
+/*
+ # Deal button color
+ */
+
+.btn--deal {
+    background-color: $trv-maincolor-05;
+    border: 1px solid $trv-maincolor-05;
+    border-bottom: 1px solid $trv-maincolor-05-dark;
+    @include outline-inset($white);
+    @include button-pseudos(
+        $trv-maincolor-05-dark,
+        $trv-maincolor-05,
+        $trv-maincolor-04-very-light
+    );
+}

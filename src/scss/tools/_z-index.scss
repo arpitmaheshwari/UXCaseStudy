@@ -1,0 +1,74 @@
+/**
+ * Z-INDEX little helper :-)
+ *
+ * Example usage
+ *
+ *  // Example lists
+ *  $z-page: itemlist, itemlist-loader, filters, dealform, overlay;
+ *  $z-overlay: image, disclamer, frame;
+ *
+ *  // get z axis for filters from $z-page list
+ *   .test-1 {
+ *       z-index: z-axis($z-page, filters); // 3
+ *   }
+ *
+ *  // append close-btn to overlay list
+ *  $z-overlay: append($z-overlay, close-btn);
+ *
+ *  .test-2 {
+ *      z-index: z-axis($z-overlay, close-btn); // 4
+ *  }
+ *
+ *  // insert on position 2 favorite in page list
+ *  $z-page: insert-nth($z-page, 2, favorite);
+ *
+ *  .test-3 {
+ *      z-index: z-axis($z-page, favorite); // 2
+ * }
+ */
+
+/**
+ * Z Axis of stacking list
+ *
+ * @returns <item position in z axis / sass map>
+ */
+@function z-axis($list, $element) {
+    $index: index($list, $element);
+    // z-index value is found, return position in the list
+    @if $index {
+        @return $index;
+    }
+
+    @warn 'There is no "#{$element}" in this stacking list; choose one of: #{$list}';
+    // Returning null sass will ignore z-index property
+    @return null;
+}
+
+/**
+ * insert-nth child to sass list function
+ *
+ * @returns <updated sass list>
+ */
+@function insert-nth($list, $index, $value) {
+    $result: null;
+
+    @if type-of($index) != number {
+        @warn "$index: #{quote($index)} is not a number for `insert-nth`.";
+    } @else if $index < 1 {
+        @warn "List index 0 must be a non-zero integer for `insert-nth`";
+    } @else if $index > length($list) {
+        @warn "List index is #{$index} but list is only #{length($list)} item long for `insert-nth'.";
+    } @else {
+        $result: ();
+
+        @for $i from 1 through length($list) {
+            @if $i == $index {
+                $result: append($result, $value);
+            }
+
+            $result: append($result, nth($list, $i));
+        }
+    }
+
+    @return $result;
+}

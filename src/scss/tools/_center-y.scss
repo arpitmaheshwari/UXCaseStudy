@@ -1,0 +1,22 @@
+/// center-y, Centers anything on y-axis
+///
+/// @group various
+///
+/// @example scss - Usage
+///   .foo {
+///     @include center-y
+///   }
+///
+/// @example scss - output
+///   .foo {
+///     position: relative;
+///     top: 50%;
+///     transform: translateX(-50%);
+///   }
+///
+
+@mixin center-y {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}

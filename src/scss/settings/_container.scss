@@ -1,0 +1,23 @@
+/*
+ * # Container height for background image on fullwidth
+ */
+/// bg fullwidth img height
+/// @type string
+/// @group container
+$bg-fullwidth-img-height: 400px !default;
+/// centerwrapper width
+/// @type string
+/// @group container
+$centerwrapper-width: ($min-phone-width * 2) + ($spacing * 4) !default;
+/// centerwrapper narrower width
+/// @type string
+/// @group container
+$centerwrapper-narrower-width: $min-phone-width !default;
+/// item width
+/// @type string
+/// @group container
+$item-width: 980px !default;
+/// centerwrapper item width
+/// @type string
+/// @group container
+$centerwrapper--item-width: 1082px !default;

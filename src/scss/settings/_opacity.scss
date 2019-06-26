@@ -1,0 +1,28 @@
+/*
+ * # Opacity
+ */
+
+/// opacity-none
+/// @type string
+/// @group opacity
+$opacity-none: 0 !default;
+/// opacity-low
+/// @type string
+/// @group opacity
+$opacity-low: 0.25 !default;
+/// opacity-half
+/// @type string
+/// @group opacity
+$opacity-half: 0.5 !default;
+/// opacity-medium
+/// @type string
+/// @group opacity
+$opacity-medium: 0.75 !default;
+/// opacity-high
+/// @type string
+/// @group opacity
+$opacity-high: 0.9 !default;
+/// opacity-full
+/// @type string
+/// @group opacity
+$opacity-full: 1 !default;

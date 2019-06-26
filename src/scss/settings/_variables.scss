@@ -1,0 +1,15 @@
+// ______ __  __ _____   ____  _____ _______       _   _ _______ _
+// |_   _|  \/  |  __ \ / __ \|  __ \__   __|/\   | \ | |__   __| |
+//   | | | \  / | |__) | |  | | |__) | | |  /  \  |  \| |  | |  | |
+//   | | | |\/| |  ___/| |  | |  _  /  | | / /\ \ | . ` |  | |  | |
+//  _| |_| |  | | |    | |__| | | \ \  | |/ ____ \| |\  |  | |  |_|
+// |_____|_|  |_|_|     \____/|_|  \_\ |_/_/    \_\_| \_|  |_|  (_)
+//
+// Hotel-Search application specific variables.
+// Try not to add much here, check tcp-settings npm package for variable declarations.
+//
+
+$image-incomplete-loader: getHardcodedImageUrl('loading1.gif') !default;
+$icon-countryflags-2x: getHardcodedImageUrl(
+    'imagemap_all_flags_21@2x.png'
+) !default;

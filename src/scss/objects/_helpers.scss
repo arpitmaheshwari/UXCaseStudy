@@ -1,0 +1,73 @@
+// helpers
+//
+// .hidden                                  - &nbsp;
+// .invisible                               - &nbsp;
+// .ir                                      - Image replacement
+// .visuallyhidden                          - &nbsp;
+// .cf, .clearfix                           - &nbsp;
+//
+// Styleguide objects.helpers
+
+.hidden {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.ir {
+    background-color: $transparent;
+    border: 0;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 150%;
+    }
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap one word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visuallyhidden {
+    @include visuallyhidden;
+
+    /*
+    * Extends the .visuallyhidden class to allow the element to be focusable
+    * when navigated to via the keyboard: h5bp.com/p
+    */
+
+    .focusable {
+        &:active,
+        &:focus {
+            clip: auto;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            position: static;
+            width: auto;
+        }
+    }
+}
+
+/*
+ * Clearfix 2017, clear floats
+ *
+ */
+
+.cf,
+.clearfix {
+    &:after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+}

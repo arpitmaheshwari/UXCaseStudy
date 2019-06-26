@@ -1,0 +1,21 @@
+/* @TODO Sassdoc missing */
+
+/* stylelint-disable rule-empty-line-before */
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}

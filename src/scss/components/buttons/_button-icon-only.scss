@@ -1,0 +1,54 @@
+/*
+ # Button with only an icon
+ */
+
+/* button size variables */
+$btn-width-big: 52px;
+$btn-width-regular: 44px;
+$btn-width-small: 36px;
+
+/* mixins for responsive button */
+@mixin btn-icon-only-big {
+    &.btn--icon-only {
+        min-width: $btn-width-big;
+        min-height: $btn-height-big;
+    }
+}
+
+@mixin btn-icon-only-regular {
+    &.btn--icon-only {
+        min-width: $btn-width-regular;
+        min-height: $btn-height-regular;
+    }
+}
+
+@mixin btn-icon-only-small {
+    &.btn--icon-only {
+        min-width: $btn-width-small;
+        min-height: $btn-height-small;
+    }
+}
+
+/* btn class */
+.btn--icon-only {
+    padding: 0;
+    width: auto;
+
+    .btn__ic {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+    }
+
+    &.btn--big {
+        min-width: $btn-width-big;
+    }
+
+    &.btn--regular {
+        min-width: $btn-width-regular;
+    }
+
+    &.btn--small {
+        min-width: $btn-width-small;
+    }
+}

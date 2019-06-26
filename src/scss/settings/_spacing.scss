@@ -1,0 +1,51 @@
+/*
+ * # Gutter - Basic Spacing
+ */
+
+/// spacing default 4px
+/// @type string
+/// @group spacing
+$spacing: 4px !default;
+
+// ______ __  __ _____   ____  _____ _______       _   _ _______ _
+// |_   _|  \/  |  __ \ / __ \|  __ \__   __|/\   | \ | |__   __| |
+//   | | | \  / | |__) | |  | | |__) | | |  /  \  |  \| |  | |  | |
+//   | | | |\/| |  ___/| |  | |  _  /  | | / /\ \ | . ` |  | |  | |
+//  _| |_| |  | | |    | |__| | | \ \  | |/ ____ \| |\  |  | |  |_|
+// |_____|_|  |_|_|     \____/|_|  \_\ |_/_/    \_\_| \_|  |_|  (_)
+//
+// $gutter is now deprecated please use the $spacing instead.
+//
+
+/// gutter default 16px
+/// @type string
+/// @group spacing
+$gutter: 16px !default;
+/// gutter-doubled
+/// @type string
+/// @group spacing
+$gutter-doubled: ($gutter * 2) !default; // 32px
+/// gutter-one-plus-half
+/// @type string
+/// @group spacing
+$gutter-one-plus-half: ($gutter * 1.5) !default; // 24px
+/// gutter-three-quarters
+/// @type string
+/// @group spacing
+$gutter-three-quarters: (($gutter / 4) * 3) !default; // 12px
+/// gutter-half
+/// @type string
+/// @group spacing
+$gutter-half: ($gutter / 2) !default; // 8px
+/// gutter-three-eighths
+/// @type string
+/// @group spacing
+$gutter-three-eighths: (($gutter / 8) * 3) !default; // 6px
+/// gutter-quarter
+/// @type string
+/// @group spacing
+$gutter-quarter: ($gutter / 4) !default; // 4px
+/// gutter-eighth
+/// @type string
+/// @group spacing
+$gutter-eighth: ($gutter / 8) !default; // 2px

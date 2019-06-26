@@ -1,0 +1,32 @@
+/*
+ * # Various settings
+ */
+
+/// logo width
+/// @type width
+/// @group settings
+$logo-width: 296px !default;
+/// logo height
+/// @type height
+/// @group settings
+$logo-height: 50px !default;
+/// logo file
+/// @type string
+/// @group settings
+$logo: 'logo.png' !default;
+/// logo file high res
+/// @type string
+/// @group settings
+$logo-hi-res: 'logo@2x.png' !default;
+/// image directory
+/// @type string
+/// @group settings
+$image-dir: 'img' !default;
+/// preloader image
+/// @type string
+/// @group settings
+$preloader: 'preloader.gif' !default;
+/// loader image
+/// @type string
+/// @group settings
+$loader: 'loader.gif' !default;

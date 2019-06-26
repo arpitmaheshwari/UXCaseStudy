@@ -1,0 +1,15 @@
+/*
+ # Button primary color
+ */
+
+.btn--primary {
+    background-color: $trv-maincolor-01;
+    border: 1px solid $trv-maincolor-01;
+    border-bottom: 1px solid $trv-maincolor-01-dark;
+    @include outline-inset($white);
+    @include button-pseudos(
+        $trv-maincolor-01-dark,
+        $trv-maincolor-01,
+        $trv-maincolor-01-very-light
+    );
+}

@@ -1,0 +1,42 @@
+/* zone navigation */
+.btn--square {
+    background: $white;
+    border: 1px solid $trv-maincolor-04-lighter;
+    border-radius: $border-radius;
+    float: left;
+    height: 44px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    text-indent: -9999em;
+    width: 44px;
+    margin-left: $spacing;
+
+    @include respond-to-min($screen-medium) {
+        float: right;
+        margin-left: 0;
+    }
+
+    .icon-bg-ic {
+        display: block;
+        position: absolute;
+        height: 24px;
+        width: 24px;
+    }
+
+    .active {
+        display: none;
+    }
+
+    @include link-pseudos-hover {
+        background: $trv-maincolor-04-lighter;
+
+        .icon-bg-ic {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    }
+}

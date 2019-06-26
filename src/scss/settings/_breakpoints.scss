@@ -1,0 +1,26 @@
+// ______ __  __ _____   ____  _____ _______       _   _ _______ _
+// |_   _|  \/  |  __ \ / __ \|  __ \__   __|/\   | \ | |__   __| |
+//   | | | \  / | |__) | |  | | |__) | | |  /  \  |  \| |  | |  | |
+//   | | | |\/| |  ___/| |  | |  _  /  | | / /\ \ | . ` |  | |  | |
+//  _| |_| |  | | |    | |__| | | \ \  | |/ ____ \| |\  |  | |  |_|
+// |_____|_|  |_|_|     \____/|_|  \_\ |_/_/    \_\_| \_|  |_|  (_)
+//
+// This file is processed by webpack
+// Inline comments and simple variable assignments are allowed
+// Don't use other type of expressions or assignments
+
+$screen-small: 480px;
+$screen-medium: 980px !default;
+$screen-large: 1280px !default;
+$screen-extralarge: 1312px;
+
+// # Pricesearch bundle - additional item viewports
+$screen-phone: 320px;
+$screen-phone-wide: 360px; // apparently still in use
+$screen-phablet: 412px;
+$screen-tablet: 480px;
+$screen-tablet-wide: 600px;
+$screen-tablet-wider: 720px;
+
+// # Hotel-Search Item-Page all viewports
+$screen-tablet-extra-wide: 880px;

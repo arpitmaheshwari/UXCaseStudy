@@ -1,0 +1,73 @@
+.hotel-item {
+    background-color: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: $font-size-xxs;
+    padding: $spacing * 2;
+
+    &__image-container {
+        flex: 0 0 278px;
+    }
+
+    &__details {
+        flex: 0 0 calc(100% - 278px - #{$spacing * 3});
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__hotel-name {
+        margin: 0;
+    }
+
+    &__rating {
+        margin: 0;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    &__deals {
+        margin-right: $spacing * 3;
+        text-align: right;
+    }
+
+    &__deal {
+        margin: 0;
+        line-height: $line-height-small;
+
+        &--high {
+            color: $trv-maincolor-04-lighter;
+        }
+    }
+
+    &__price {
+        padding-left: $spacing * 3;
+
+        &--high {
+            color: $trv-maincolor-03;
+            font-size: $font-size-xs;
+            text-decoration: line-through;
+        }
+
+        &--best {
+            color: $trv-maincolor-05;
+            font-size: $font-size-s;
+            font-weight: bold;
+        }
+    }
+
+    &__cta {
+        margin: 0;
+
+        .svg-color--primary {
+            stroke: $white;
+        }
+    }
+}

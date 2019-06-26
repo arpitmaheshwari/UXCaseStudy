@@ -1,0 +1,22 @@
+/*
+ # Small button size
+ */
+
+/* mixin for responsive button */
+@mixin btn-small($icon-position: null) {
+    font-size: $font-size-xxs;
+    line-height: 0.5; // this is an absolute exception for small buttons
+    min-height: $btn-height-small;
+    @if $icon-position == 'icon-leading' {
+        padding: ($spacing * 3) ($spacing * 3) ($spacing * 3) 46px;
+    } @else if $icon-position == 'icon-trailing' {
+        padding: ($spacing * 3) 46px ($spacing * 3) ($spacing * 3);
+    } @else {
+        padding: $spacing * 3;
+    }
+}
+
+/* button class */
+.btn--small {
+    @include btn-small;
+}

@@ -1,0 +1,32 @@
+/*
+ # Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0 0 $spacing * 2;
+    padding: 0;
+    min-width: 0; // Chrome and Firefox set a `min-width: min-content;` on fieldsets
+}
+
+/* # Formelements */
+input,
+select,
+textarea {
+    background: transparent; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    display: block;
+    font: inherit; // Change font properties to `inherit` in all browsers (opinionated).
+    margin: 0; // Remove the margin in Firefox and Safari.
+
+    // Disabled and read-only inputs
+    &[disabled],
+    &[readonly],
+    fieldset[disabled] & {
+        cursor: not-allowed;
+        opacity: 1; // iOS fix for unreadable disabled content
+    }
+}
+
+button {
+    font: inherit;
+}

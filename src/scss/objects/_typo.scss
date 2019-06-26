@@ -1,0 +1,345 @@
+// inverted-text
+//
+// Markup:
+// <p class="inverted-text">inverted text</p>
+//
+// Styleguide objects.invertedtext
+
+.inverted-text {
+    padding: $spacing * 4;
+    background-color: $trv-maincolor-04;
+    color: $white;
+}
+
+// headlines
+//
+// Markup:
+// <h1 class="h1">Headline H1</h1>
+// <h2 class="h2">Headline H2</h2>
+// <h3 class="h3">Headline H3</h3>
+// <h4 class="h4">Headline H4</h4>
+// <h5 class="h5">Headline H5</h5>
+// <h6 class="h6">Headline H6</h6>
+//
+// Styleguide objects.headlines
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: $headings-font-family;
+
+    .inverted-text & {
+        color: $white;
+    }
+}
+
+.h1 {
+    font-size: $font-size-m;
+    line-height: $line-height-small;
+    margin: ($spacing * 8) 0;
+
+    @include respond-to-min($screen-medium) {
+        font-size: $font-size-xl;
+    }
+}
+
+.h2 {
+    font-size: $font-size-s;
+    line-height: $line-height-small;
+    margin: ($spacing * 4) 0;
+
+    @include respond-to-min($screen-medium) {
+        font-size: $font-size-l;
+    }
+}
+
+.h3 {
+    font-size: $font-size-xs;
+    margin: ($spacing * 4) 0;
+
+    @include respond-to-min($screen-medium) {
+        font-size: $font-size-s;
+    }
+}
+
+.h4,
+.h5,
+.h6 {
+    font-size: $font-size-xs;
+    font-weight: normal;
+    line-height: $line-height-small;
+    margin: 0;
+
+    @include respond-to-min($screen-medium) {
+        font-size: $font-size-s;
+    }
+}
+
+// paragraph
+//
+// Markup:
+// <p>My paragraph<p>
+// <p class="paragraph">My paragraph<p>
+//
+// Styleguide objects.paragraph
+
+p,
+.paragraph {
+    line-height: $line-height-big;
+    margin: ($spacing * 4) 0;
+
+    .inverted-text & {
+        color: $white;
+    }
+}
+
+// small
+//
+// Markup:
+// <small>small</small>
+// <small class="small">small</small>
+//
+// Styleguide objects.small
+
+small,
+.small {
+    font-size: $font-size-xxs;
+}
+
+// xsmall
+//
+// Markup:
+// <span class="xsmall">xsmall</span>
+//
+// Styleguide objects.xsmall
+
+.xsmall {
+    font-size: $font-size-3xs;
+}
+
+// cite
+//
+// Markup:
+// <cite>cite</cite>
+//
+// Styleguide objects.cite
+
+cite {
+    font-style: normal;
+}
+
+// blockquote
+//
+// Markup:
+// <blockquote>cite</blockquote>
+//
+// Styleguide objects.blockquote
+
+blockquote {
+    color: $trv-maincolor-04-light;
+    font-size: $font-size-xxs;
+    line-height: $line-height-big;
+
+    .inverted-text & {
+        color: $white;
+    }
+}
+
+// anchor
+//
+// Markup:
+// <a>The link</a>
+//
+// Styleguide objects.anchor
+
+a {
+    display: inline-block;
+    color: $trv-maincolor-01;
+    text-decoration: none;
+    @include outline;
+
+    .inverted-text & {
+        color: $white;
+
+        @include link-pseudos-hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+    @include link-pseudos-hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    &.dark {
+        color: $trv-maincolor-04;
+
+        @include link-pseudos-hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        &--bold {
+            font-weight: bold;
+        }
+    }
+}
+
+// unordered list
+//
+// Markup:
+// <ul><li>list entry</li><li>list entry<li></ul>
+//
+// Styleguide objects.unorderedlist
+
+// ordered list
+//
+// Markup:
+// <ol><li>list entry</li><li>list entry<li></ol>
+//
+// Styleguide objects.orderedlist
+
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.ordered-list {
+    list-style: decimal;
+    margin: ($spacing * 8) 0;
+    padding-left: $spacing * 8;
+
+    .ordered-list {
+        margin: $spacing 0 0;
+    }
+
+    .unordered-list {
+        margin: $spacing 0 0;
+    }
+
+    .ordered-list__item {
+        line-height: $line-height-big;
+        margin-bottom: $spacing;
+    }
+}
+
+.unordered-list {
+    list-style: disc;
+    margin: ($spacing * 8) 0;
+    padding-left: ($spacing * 8);
+
+    .unordered-list {
+        margin: $spacing 0 0;
+    }
+
+    .ordered-list {
+        margin: $spacing 0 0;
+    }
+
+    .unordered-list__item {
+        line-height: $line-height-big;
+        margin-bottom: $spacing;
+    }
+}
+
+dl {
+    margin: ($spacing * 4) 0;
+}
+
+dt {
+    margin: 0 0 ($spacing * 1.5);
+    font-weight: bold;
+}
+
+dd {
+    margin: 0 0 ($spacing * 1.5);
+}
+
+.list-item {
+    display: list-item;
+    line-height: $line-height-big;
+    margin: ($spacing * 2) 0;
+}
+
+.unordered-list-nobullet {
+    list-style: none;
+    padding-left: $spacing * 8;
+
+    .unordered-list-nobullet {
+        margin-bottom: 0;
+    }
+
+    .unordered-list-nobullet__item {
+        margin-bottom: $spacing * 2;
+    }
+}
+
+/* @todo: this is Atomic CSS or a modifier? */
+.lsp-inside {
+    list-style-position: inside;
+}
+
+.definition-list {
+    margin: ($spacing * 8) 0;
+
+    .definition-term {
+        margin: $spacing 0;
+    }
+
+    .definition-data {
+        line-height: $line-height-big;
+        margin: $spacing 0;
+        padding-left: $spacing * 4;
+    }
+
+    .definition-list {
+        margin: 0 0 0 ($spacing * 4);
+    }
+}
+
+.inline-list {
+    text-align: center;
+
+    .list-item {
+        display: inline-block;
+        margin: 0 ($spacing * 2);
+    }
+}
+
+// abbreviation
+//
+// Markup:
+// <abbr>abbreviation</abbr>
+//
+// Styleguide objects.abbreviation
+
+abbr {
+    text-transform: none;
+    font-size: $font-size-xxs;
+    cursor: help;
+
+    &[title] {
+        border-bottom: 1px dotted $border-color;
+    }
+}
+
+// thematic-break
+//
+// Markup:
+// <hr class="thematic-break />
+//
+// Styleguide objects.thematic-break
+
+.thematic-break {
+    display: block;
+    margin: ($spacing * 4) 0;
+    border-bottom: 0;
+    border-top: 1px solid $border-color;
+    border-left: 0;
+    border-right: 0;
+}

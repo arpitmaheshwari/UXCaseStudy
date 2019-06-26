@@ -1,0 +1,18 @@
+/*
+ # Button wrapper
+ */
+
+.btn-wrapper {
+    padding: ($spacing * 6) inherit ($spacing * 3);
+
+    // Pretend space for absolute positioned buttons on bottom (needed for equal height layout
+    &--bottom {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        min-width: 0;
+        padding: 0 ($spacing * 4) ($spacing * 4);
+    }
+}

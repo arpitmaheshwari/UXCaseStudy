@@ -1,0 +1,17 @@
+/*
+ * # Box-shadow
+ */
+/// default box shadow
+/// @type string
+/// @group box-shadow
+$box-shadow: 0 1px 4px rgba(41, 51, 57, $opacity-half) !default;
+/// alternative box shadow
+/// @type string
+/// @deprecated
+/// @group box-shadow
+$box-shadow-02: $box-shadow !default;
+
+/// Popover box shadow
+/// @type string
+/// @group box-shadow
+$box-shadow-popover: 0 10px 30px rgba(41, 51, 57, $opacity-medium);

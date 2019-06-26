@@ -1,0 +1,21 @@
+/*
+ # Button with icon on the left
+ */
+
+.btn--icon-leading {
+    padding-left: 46px;
+    padding-right: 46px;
+
+    @include respond-to-min($screen-small) {
+        padding-right: $spacing * 3;
+
+        &--w-100 {
+            text-align: left;
+        }
+    }
+
+    .btn__ic {
+        @extend %btn--icon-ic;
+        left: 10px;
+    }
+}

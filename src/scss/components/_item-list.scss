@@ -1,0 +1,22 @@
+/*
+ * Item List Wrapper
+ */
+.itemlist {
+    min-height: 600px;
+
+    &_error_wrapper {
+        .change_rooms_settings,
+        .alert__close {
+            @include outline();
+        }
+    }
+}
+
+/*
+ * Item List
+ */
+.item-list {
+    max-width: $item-width;
+    margin: 0 auto;
+    min-height: 800px;
+}

@@ -1,0 +1,13 @@
+/* ##################################################################################################
+ * IMPORTANT! Only delete from here!
+ * ##################################################################################################
+ */
+
+/* desktop sprite */
+$imageSpriteMoon: getHardcodedImageUrl('rwd_desk_sprite_15.png') !default;
+// see http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variable_defaults_
+
+/* loading images */
+$loadingImgLarge: getHardcodedImageUrl('loader_on_white_nb_big.gif') !default;
+
+$image-incomplete-loader: getHardcodedImageUrl('loading1.gif') !default;

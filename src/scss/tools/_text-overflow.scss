@@ -1,0 +1,18 @@
+/// text-overflow, Creates properties needed for single line text-overflow ellipsis. Width has to be set manually
+///
+/// @group various
+///
+/// @example scss - Usage
+///   .foo {
+///     @include text-overflow()
+///   }
+///
+/// @example scss - output
+///   .foo { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+///
+
+@mixin text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

@@ -1,0 +1,31 @@
+/*
+ * here will the sass config/imports go
+ *
+ * ITCSS
+ * 1. Settings
+ * 2. Tools
+ * 3. Generic
+ * 4. Elements
+ * 5. Objects
+ * 6. Components
+ * 7. Trumps
+ * 8. Vendor
+ * 9. Shame
+ */
+
+/**
+ * Hotel-search main
+ */
+
+@import 'elements/base';
+@import 'elements/layout';
+
+@import 'objects/elements';
+@import 'objects/centerwrapper';
+@import 'objects/helpers';
+@import 'objects/icon-helpers';
+@import 'objects/typo';
+
+@import 'components/buttons/buttons';
+@import 'components/icons';
+@import 'components/alerts';

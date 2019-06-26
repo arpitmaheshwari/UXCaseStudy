@@ -1,0 +1,165 @@
+/* # Base styles */
+
+/* # CSS viewport declaration */
+@-ms-viewport {
+    width: device-width;
+}
+
+@viewport {
+    width: device-width;
+}
+
+/* # Header theme trivago */
+html,
+body {
+    // @todo: breaks hotel comparison
+    max-width: 100%; /* Fix for iOS */
+    min-width: $min-phone-width;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    color: $text;
+}
+
+/*
+ * apply a natural box layout model to all elements, but allowing components to change
+ * see http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+
+html {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    line-height: $line-height-small;
+    // vendor prefix for old androids
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Remove most browser's user agents default body margin of 8px. */
+body {
+    margin: 0;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Overwrite normalize.scss and user agent styles
+ */
+figure,
+blockquote {
+    margin: 0 0 ($spacing * 4);
+}
+
+dl,
+ol,
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+    padding: 0;
+    border: 0;
+    background-color: $transparent;
+}
+
+/*
+ * until normalize.css gets updated
+ * see https://github.com/necolas/normalize.css/issues/706
+ */
+button {
+    border-radius: 0;
+}
+
+/* ## figures */
+figcaption {
+    padding: 0 ($spacing * 4);
+    font-size: $font-size-3xs;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+/* Buttons
+========================================================================== */
+
+/**
+ * Change the cursor in all browsers (opinionated).
+ */
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+    cursor: pointer;
+    border-radius: 0;
+}
+
+/**
+ * Restore the default cursor to disabled elements unset by the previous rule.
+ */
+[disabled] {
+    cursor: default;
+}

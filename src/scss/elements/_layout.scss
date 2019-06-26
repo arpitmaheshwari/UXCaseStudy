@@ -1,0 +1,230 @@
+//
+// main layout
+// --------------------------------------------------
+
+html {
+
+    /* WEB-10448 fix weird highlighting with event delegation on most mobile (webkit) browsers */
+    /* stylelint-disable sh-waqar/declaration-use-variable */
+    -webkit-tap-highlight-color: transparent;
+
+    /* dont allow font scaling with orientation change */
+    -webkit-text-size-adjust: none; //mayvbe when its NOT working set to 100%!
+    /* stylelint-enable */
+}
+
+html[lang='arb'],
+html[lang='ar-AE'] {
+    font-family: Tahoma, Arial, Helvetica, Sans, sans-serif, 'Sans Serif';
+}
+
+body {
+    direction: ltr;
+    font-size: $font-size-4xs;
+    background-color: $trv-maincolor-04-lightest;
+
+    @include respond-to-min($screen-small) {
+        font-size: $font-size-3xs;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.main_content,
+.page {
+    margin-top: $spacing * 4;
+}
+
+.page {
+    margin: 0 auto; // redundant TODO
+    background-color: $white;
+    position: relative;
+    height: 100%;
+
+    .in-map-blank &,
+    .in-hotel-results-view &,
+    .in-blank-view & {
+        border: 0;
+        margin-top: 0;
+        padding-top: $spacing * 2;
+        background-color: $trv-maincolor-04-lightest;
+    }
+}
+
+.page_wrapper {
+    min-width: $screen-phone;
+    position: relative;
+    width: 100%;
+
+    .in-map-blank &,
+    .in-hotel-results-view &,
+    .in-blank-view & {
+        background: $trv-maincolor-04-lightest;
+    }
+
+    @include respond-to-min($screen-small) {
+        min-width: 100%;
+    }
+
+    @include respond-to-min($screen-medium) {
+        .in-map-blank &,
+        .in-hotel-results-view &,
+        .in-blank-view & {
+            background: $trv-maincolor-04-lightest;
+        }
+    }
+}
+
+.nav,
+.main {
+    background-color: $white;
+    height: 100%;
+    position: relative;
+    border-radius: $border-radius;
+}
+
+/* main mobile first */
+.main {
+    width: 100%;
+    /* stylelint-disable sh-waqar/declaration-use-variable */
+    background-color: transparent;
+    /* stylelint-enable */
+
+    @include respond-to-min($screen-medium) {
+        width: auto;
+        margin: 0 auto;
+        max-width: $item-width;
+    }
+
+    .in-homepage-view & {
+        @include respond-to-min($screen-medium) {
+            max-width: none;
+        }
+    }
+}
+
+.nav {
+    display: none;
+    width: 0;
+    transition: all 0.2s ease;
+    z-index: 1101;
+    background: transparent;
+    border-top: 0;
+    float: left;
+
+    @include respond-to-min($screen-medium) {
+        display: block;
+        width: 250px;
+        border-radius: $border-radius;
+    }
+}
+
+.filterlist {
+    @include respond-to-min($screen-medium) {
+        min-height: 850px;
+    }
+}
+
+.centercol {
+    padding: 0 $spacing;
+    background-color: $trv-maincolor-04-very-light;
+
+    .in-map-blank &,
+    .in-hotel-results-view &,
+    .in-blank-view & {
+        padding: 0;
+        background-color: $trv-maincolor-04-lightest;
+    }
+
+    @include respond-to-min($screen-small) {
+        padding: 0;
+        background-color: $white;
+    }
+}
+
+.content {
+    margin: 0 auto;
+    padding: 0;
+}
+
+// Removes the IE10 only X in the input field
+input::-ms-clear {
+    display: none;
+}
+
+// Adds default color input for browser "themes" and some linux distributions
+// We want to keep the native look on radio buttons. This is on iOS only possible if you don't touch background
+input {
+    background-color: $white;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/*
+ * Loading animation (...)
+ */
+
+.loading-dots {
+    &:after {
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: bottom;
+        content: '\2026'; /* ascii code for the ellipsis character */
+        width: 0;
+        animation: ellipsis steps(4, end) 900ms infinite;
+    }
+}
+
+@keyframes ellipsis {
+    100% {
+        width: 1.25em;
+    }
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+// GENERAL MODIFIERS
+.is-hidden {
+    display: none !important;
+}
+// Move to OOCSS file once we have it :-)
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+// Helps prevent Firefox Android bug (https://bugzilla.mozilla.org/show_bug.cgi?id=1286882) which triggers text selection on SVGs
+// Very specific, hence do not want to use the .no-select class above which adds other vendor prefixes
+.moz-no-select {
+    -moz-user-select: none;
+}
+
+.moz-text-select {
+    -moz-user-select: text;
+}
+
+// Does this belong here? todo: check and move if necessary
+.fs-italic {
+    font-style: italic;
+}

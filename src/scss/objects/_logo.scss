@@ -1,0 +1,19 @@
+// logo
+//
+// .white-logo                             - &nbsp;
+// .white-logo--cn                         - &nbsp;
+//
+// Styleguide objects.logo
+
+.white-logo {
+    display: block;
+    margin: 0 auto;
+    height: 32px;
+    width: 102px;
+
+    &--cn {
+        @extend .white-logo;
+        height: 76px;
+        width: 149px;
+    }
+}

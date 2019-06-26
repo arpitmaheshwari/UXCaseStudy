@@ -1,0 +1,29 @@
+/*
+ # Button tertiary color
+ */
+
+.btn--tertiary {
+    background-color: $white;
+    border: 1px solid $trv-maincolor-04-light;
+    color: $text;
+
+    @include link-pseudos {
+        color: $text;
+    }
+
+    &:hover,
+    &:active {
+        background-color: $trv-maincolor-04-light;
+        color: $white;
+    }
+
+    &.btn--disabled {
+        border-color: $trv-maincolor-04-very-light;
+        background-color: $white;
+        color: $trv-maincolor-04-very-light;
+
+        .btn__ic {
+            opacity: $opacity-low;
+        }
+    }
+}

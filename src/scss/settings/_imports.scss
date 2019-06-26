@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+// Pricesearch specific configuration
+@import 'breakpoints';
+@import 'images';
+@import 'variables';
+
+// Former pattern library
+// 1. Settings
+@import 'colors';
+@import 'settings';
+@import 'spacing';
+@import 'opacity';
+@import 'mediaqueries';
+@import 'border';
+@import 'boxshadow';
+@import 'buttons';
+@import 'container';
+@import 'fonts';
+@import 'forms';
+@import 'navigation';
+@import 'textdirection';
+
+// 2. Tools
+@import '../tools/center-x';
+@import '../tools/center-y';
+@import '../tools/link-pseudos';
+@import '../tools/button-pseudos';
+@import '../tools/mediaqueries';
+@import '../tools/visuallyhidden';
+@import '../tools/placeholder';
+@import '../tools/rem';
+@import '../tools/text-overflow';
+@import '../tools/focus';
+@import '../tools/mixins';

@@ -1,0 +1,34 @@
+/**
+ * @rj: static-features conditional sass, $features sass list is setted from webpack.
+ * Please check available static variants in: src-js/build/static-variants-config.json
+ */
+
+$features: () !default;
+
+@mixin is-feature-enabled($feature) {
+    @if index($features, $feature) {
+        @content;
+    }
+}
+
+@mixin is-not-feature-enabled($feature) {
+    @if not index($features, $feature) {
+        @content;
+    }
+}
+
+@mixin is-rtl {
+    @include is-feature-enabled(rtl) {
+
+        /*rtl:begin:ignore*/
+        @content;
+
+        /*rtl:end:ignore*/
+    }
+}
+
+@mixin is-ltr {
+    @include is-not-feature-enabled(rtl) {
+        @content;
+    }
+}

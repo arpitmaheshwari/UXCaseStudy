@@ -1,0 +1,52 @@
+/* all pagination related */
+.btn {
+    &--pagination {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        background-color: $transparent;
+        border: 1px solid $transparent;
+        min-width: $btn-height-small;
+        width: auto;
+
+        .no-flexbox & {
+            display: inline-block;
+        }
+
+        &.btn--active {
+            background-color: $trv-maincolor-04-light;
+            color: $white;
+            border: 1px solid $trv-maincolor-04-light;
+            line-height: 10px;
+
+            @include link-pseudos {
+                background-color: $trv-maincolor-04-light;
+                color: $white;
+            }
+        }
+
+        &:hover {
+            background-color: $white;
+            border-color: $trv-maincolor-04-light;
+        }
+
+        @include link-pseudos {
+            color: $trv-maincolor-04-light;
+        }
+    }
+
+    &--page-arrow {
+        padding: 0;
+    }
+
+    &--previous {
+        margin-right: $spacing * 2;
+    }
+
+    &--next {
+        margin-left: $spacing;
+    }
+}
+
+/* end of pagination */

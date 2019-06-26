@@ -1,0 +1,22 @@
+/*
+ # Big button size
+ */
+
+/* mixin for responsive button */
+@mixin btn-big($icon-position: null) {
+    font-size: $font-size-s;
+    min-height: $btn-height-big;
+    line-height: 1;
+    @if $icon-position == 'icon-leading' {
+        padding: 14px ($spacing * 3) 14px 46px;
+    } @else if $icon-position == 'icon-trailing' {
+        padding: 14px 46px 14px ($spacing * 3);
+    } @else {
+        padding: 14px 15px;
+    }
+}
+
+/* btn class */
+.btn--big {
+    @include btn-big;
+}

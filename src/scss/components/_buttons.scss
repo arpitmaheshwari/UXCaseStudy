@@ -1,0 +1,32 @@
+/*
+ # Buttons Basic Setup
+ */
+
+$buttonHeight: 34px;
+$buttonLeftPadding: 15px;
+$buttonRightPadding: 15px;
+$buttonFontSize: 14px;
+$buttonLineHeight: 34px;
+$buttonBgColor: $white;
+$buttonBorder: 1px solid $trv-maincolor-04-light;
+
+.btn_hs {
+    font-size: $font-size-4xs;
+    border-radius: $border-radius;
+    height: $buttonHeight;
+    line-height: $buttonLineHeight;
+    background-color: $buttonBgColor;
+    border: $buttonBorder;
+    cursor: pointer;
+    outline: none;
+    padding: 0 $buttonRightPadding 0 $buttonLeftPadding;
+
+    @include respond-to-min($screen-small) {
+        font-size: $buttonFontSize;
+        border-radius: $border-radius;
+    }
+
+    &:hover {
+        color: $trv-maincolor-01;
+    }
+}

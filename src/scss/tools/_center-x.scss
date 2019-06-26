@@ -1,0 +1,22 @@
+/// center-x, Centers anything on x-axis
+///
+/// @group various
+///
+/// @example scss - Usage
+///   .foo {
+///     @include center-x
+///   }
+///
+/// @example scss - output
+///   .foo {
+///     position: relative;
+///     left: 50%;
+///     transform: translateX(-50%);
+///   }
+///
+
+@mixin center-x {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

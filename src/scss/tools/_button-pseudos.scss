@@ -1,0 +1,79 @@
+/// button pseudos focus. Generates background-color and border for focus and hover states for button
+///
+/// @group buttons
+///
+/// @param {String} $focus-color - color value focus
+/// @param {String} $hover-color - color value hover
+/// @output `:focus` and `:hover` pseudo classes
+///
+/// @example scss - Usage
+///   .foo {
+///     @include button-pseudo-focus($focus-color, $hover-color);
+///   }
+///
+/// @example scss - output
+///   foo:focus { background-color:#fff;border:1px solid #fff } foo:focus:hover { background-color:#000;border:1px solid #000 }
+///
+
+@mixin button-pseudo-focus($focus-color, $hover-color) {
+    &:focus {
+        background-color: $focus-color;
+        border: 1px solid $focus-color;
+
+        &:hover {
+            background-color: $hover-color;
+            border: 1px solid $hover-color;
+        }
+    }
+}
+
+/// button pseudos focus. Generates background-color and border for focus and hover states for button. Adds `.btn-disabled` class and produces disabled states for disabled button
+///
+/// @group buttons
+///
+/// @param {String} $focus-color - color value focus
+/// @param {String} $hover-color - color value hover
+/// @param {String} $disabled-color - color value used for disabled button and pseudo focus states
+///
+/// @example scss - Usage
+///   .foo {
+///     @include button-pseudos($hover-color, $focus-color, $disabled-color);
+///   }
+///
+/// @example scss - output
+///   .foo:hover, .foo:active {
+///     background-color: #fff;
+///     border: 1px solid #fff; }
+///   .foo:focus {
+///     background-color: #007fad;
+///     border: 1px solid #007fad; }
+///   .foo:focus:hover {
+///     background-color: #fff;
+///     border: 1px solid #fff; }
+///   .foo.btn--disabled {
+///     border-color: #000;
+///     background-color: #000; }
+///   .foo.btn--disabled:focus {
+///     background-color: #000;
+///     border: 1px solid #000; }
+///   .foo.btn--disabled:focus:hover {
+///     background-color: #000;
+///     border: 1px solid #000; }
+///
+
+@mixin button-pseudos($hover-color, $focus-color, $disabled-color) {
+    &:hover,
+    &:active {
+        background-color: $hover-color;
+        border: 1px solid $hover-color;
+    }
+
+    @include button-pseudo-focus($focus-color, $hover-color);
+
+    &.btn--disabled {
+        border-color: $disabled-color;
+        background-color: $disabled-color;
+
+        @include button-pseudo-focus($disabled-color, $disabled-color);
+    }
+}

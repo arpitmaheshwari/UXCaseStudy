@@ -1,0 +1,866 @@
+// background
+//
+// background values
+//
+// Markup:
+// <div class="{{modifier_class}}">background values</div>
+//
+// .bg-white                        - &nbsp;
+// .bg-trv-maincolor-04-lightest    - &nbsp;
+//
+// Styleguide oocss.background
+
+.bg-white {
+    background: $white;
+}
+
+.bg-trv-maincolor-04-lightest {
+    background: $trv-maincolor-04-lightest;
+}
+
+// opacity
+//
+// opacity values
+//
+// Markup:
+// <div class="{{modifier_class}}">opacity</div>
+//
+// .opacity-high                - &nbsp;
+// .opacity-medium              - &nbsp;
+// .opacity-low                 - &nbsp;
+//
+// Styleguide oocss.opacity
+
+.opacity-high {
+    opacity: $opacity-high;
+}
+
+.opacity-medium {
+    opacity: $opacity-medium;
+}
+
+.opacity-low {
+    opacity: $opacity-low;
+}
+
+// font sizes
+//
+// Markup:
+// <div class="{{modifier_class}}">font sizes</div>
+//
+// .font-tiny                   - &nbsp;
+// .font-small                  - &nbsp;
+// .font-xxs                    - &nbsp;
+//
+// Styleguide oocss.font-sizes
+
+/*.-
+ * # Typography
+ */
+/* ## Font Sizes */
+.font-tiny {
+    font-size: $font-size-3xs;
+    line-height: 15px;
+}
+
+.font-small {
+    font-size: $font-size-xxs;
+    line-height: 14px;
+}
+
+.font-xxs {
+    font-size: $font-size-xxs;
+    line-height: $line-height-big;
+}
+
+// font styles
+//
+// Markup:
+// <div class="{{modifier_class}}">font styles</div>
+//
+// .fs-normal                   - font-size normal
+// .fw-bold                     - font-weight bold
+// .fw-normal                   - font-weight normal
+// .ellipsis                    - text-overflow ellipsis
+// .td-underline                - text-decoration underline
+// .td-none                     - text-decoration none
+// .td-none--hover              - text-decoration none on hover
+// .td-underline--hover         - text-decoration underline on hover
+// .cur-pointer--hover          - cursor pointer on hover
+// .tt-uppercase                - text-transformation uppercase
+// .whs-nowrap                  - whitespace nowrap
+// .whs-pre-wrap                - whitespace pre-wrap
+// .text-shadow-01              - text-shadow
+//
+// Styleguide oocss.font-styles
+
+.fs-normal {
+    font-style: normal;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+.fw-normal {
+    font-weight: normal;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+}
+
+.td-underline {
+    text-decoration: underline;
+
+    @include link-pseudos-hover {
+        text-decoration: none;
+    }
+}
+
+.td-none {
+    text-decoration: none;
+}
+
+.td-underline--hover {
+    text-decoration: none;
+
+    @include link-pseudos-hover {
+        text-decoration: underline;
+    }
+}
+
+.td-none--hover {
+    text-decoration: none;
+
+    @include link-pseudos-hover {
+        text-decoration: none;
+    }
+}
+
+.cur-pointer--hover {
+    @include link-pseudos-hover {
+        cursor: pointer;
+    }
+}
+
+.tt-uppercase {
+    text-transform: uppercase;
+}
+
+.whs-nowrap {
+    white-space: nowrap;
+}
+
+.whs-pre-wrap {
+    white-space: pre-wrap;
+}
+
+.text-shadow-01 {
+    text-shadow: $box-shadow;
+}
+
+.text-link {
+    color: $trv-maincolor-01;
+    text-align: left;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    @include outline($trv-maincolor-04);
+}
+
+// text alignment
+//
+// Markup:
+// <div class="{{modifier_class}}">text alignment</div>
+//
+// .ta-leading                  - text-alignment leading
+// .ta-trailing                 - text-alignment trailing
+// .ta-center                   - text-alignment center
+// .hide-text                   - hiding text via display, overflow, text-indent
+//
+// Styleguide oocss.text-alignment
+
+.ta-leading {
+    text-align: left;
+}
+
+.ta-trailing {
+    text-align: right;
+}
+
+.ta-center {
+    text-align: center;
+}
+
+.hide-text {
+    display: inline-block;
+    overflow: hidden;
+    text-indent: -9999em;
+}
+
+// boxmodel
+//
+// Markup:
+// <div class="{{modifier_class}}">box model</div>
+//
+// display
+//
+// .block, .time                - &nbsp;
+// .inline-block                - &nbsp;
+// .inline                      - &nbsp;
+//
+// Styleguide oocss.boxmodel
+
+/*
+ * # Boxmodel
+ */
+/* ## Display */
+.block,
+.time {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.inline {
+    display: inline;
+}
+
+// width
+//
+// different width sizes
+//
+// Markup:
+// <div class="{{modifier_class}}">width sizes</div>
+//
+// .w-100                     - &nbsp;
+// .w-50                      - &nbsp;
+// .w-30                      - &nbsp;
+// .w-25                      - &nbsp;
+//
+// Styleguide oocss.width
+
+/* ## Widths */
+.w-100 {
+    width: 100%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+// height
+//
+// different height sizes
+//
+// Markup:
+// <div class="{{modifier_class}}">height sizes</div>
+//
+// .h-100                       - &nbsp;
+//
+// Styleguide oocss.height
+
+/* ## Heights */
+.h-100 {
+    height: 100%;
+}
+
+// overflow
+//
+// different overflow classes
+//
+// Markup:
+// <div class="{{modifier_class}}">overflow classes</div>
+//
+// .ov-hidden                   - overflow hidden
+// .ovx-hidden                  - overflow-x hidden
+// .ovy-hidden                  - overflow-y hidden
+//
+// Styleguide oocss.overflow
+
+/* ## Overflows */
+.ov-hidden {
+    overflow: hidden;
+}
+
+.ovx-hidden {
+    overflow-x: hidden;
+}
+
+.ovy-hidden {
+    overflow-y: hidden;
+}
+
+// margin
+//
+// different margin classes
+//
+// Markup:
+// <div class="{{modifier_class}}">margins</div>
+//
+// .m-0                                 - margin 0
+// .m-gutter                            - margin $spacing * 4
+// .mt-0                                - margin-top 0
+// .mt-gutter                           - margin-top $spacing * 4
+// .mt-gutter-doubled                   - margin-top $spacing * 4-double
+// .mt-gutter-quarter                   - margin-top $spacing
+// .mt-gutter-quadrupled                - margin-top $spacing * 4-quadrupled
+// .mt-gutter-three-eighths             - margin-top $spacing * 1.5
+// .mt-gutter-three-quarters            - margin-top $spacing * 3
+// .mb-gutter                           - margin-bottom $spacing * 4
+// .mb-gutter-doubled                   - margin-bottom $spacing * 4-double
+// .mb-gutter-half                      - margin-bottom $spacing * 2
+// .mb-gutter-quarter                   - margin-bottom $spacing
+// .mb-gutter-three-quarters            - margin-bottom $spacing * 4-three-quarter
+// .mb-0                                - margin-bottom 0
+// .m-0-auto                            - margin 0 auto
+// .m-0-gutter                          - margin 0 $spacing * 4
+// .m-gutter-0                          - margin $spacing * 4 0
+// .mltr-auto                           - margin-ltr auto
+//
+// Styleguide oocss.margin
+
+/* ## Margins */
+.m-0 {
+    margin: 0;
+}
+
+.m-gutter {
+    margin: $spacing * 4;
+}
+
+.m-gutter-quarter {
+    margin: $spacing;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mt-gutter {
+    margin-top: $spacing * 4;
+}
+
+.mt-gutter-quarter {
+    margin-top: $spacing;
+}
+
+.mt-gutter-eighth {
+    margin-top: $spacing * 0.5;
+}
+
+.mt-gutter-doubled {
+    margin-top: $spacing * 8;
+}
+
+.mt-gutter-quadrupled {
+    margin-top: $spacing * 16;
+}
+
+.mt-gutter-three-eighths {
+    margin-top: $spacing * 1.5;
+}
+
+.mt-gutter-three-quarters {
+    margin-top: $spacing * 3;
+}
+
+.mtr-gutter-half {
+    margin-right: $spacing * 2;
+}
+
+.mtr-gutter-quarter {
+    margin-right: $spacing;
+}
+
+.mb-gutter {
+    margin-bottom: $spacing * 4;
+}
+
+.mb-gutter-doubled {
+    margin-bottom: $spacing * 8;
+}
+
+.mb-gutter-half {
+    margin-bottom: $spacing * 2;
+}
+
+.mb-gutter-quarter {
+    margin-bottom: $spacing;
+}
+
+.mb-gutter-three-quarters {
+    margin-bottom: $spacing * 3;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.ml-gutter-quarter {
+    margin-left: $spacing;
+}
+
+.m-0-auto {
+    margin: 0 auto;
+}
+
+.m-0-gutter {
+    margin: 0 ($spacing * 4);
+}
+
+.m-0-gutter-half {
+    margin: 0 ($spacing * 2);
+}
+
+.m-gutter-0 {
+    margin: ($spacing * 4) 0;
+}
+
+.mltr-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// padding
+//
+// different padding classes
+//
+// Markup:
+// <div class="{{modifier_class}}">padding</div>
+//
+// .p-0                             - padding 0
+// .p-gutter                        - padding $spacing * 4
+// .p-gutter-quarter                - padding $spacing
+// .p-0-gutter                      - padding 0 $spacing * 4
+// .p-0-gutter-doubled              - padding 0 $spacing * 4-double
+// .p-0-gutter-half                 - padding 0 $spacing * 2
+// .p-0-gutter-quarter              - padding 0 $spacing
+// .p-0-gutter-eighth               - padding 0 $spacing * .5
+// .p-gutter-0                      - padding $spacing * 4 0
+// .p-gutter-gutter-doubled         - padding $spacing * 4 $spacing * 4-double
+// .p-gutter-doubled-0              - padding $spacing * 4-double 0
+// .p-gutter-half                   – padding $spacing * 2
+// .p-gutter-half-0                 - padding $spacing * 2 0
+// .pt-0                            - padding-top 0
+// .pl-0                            - padding-leading 0
+// .pt-gutter                       - padding-top $spacing * 4
+// .pt-gutter-doubled               - padding-top $spacing * 4-double
+// .pt-gutter-half                  - padding-top $spacing * 2
+// .pb-gutter                       - padding-bottom $spacing * 4
+// .pb-gutter-doubled               - padding-bottom $spacing * 4-double
+// .pb-gutter-half                  - padding-bottom $spacing * 2
+// .pltr-gutter                     - padding-tlr $spacing * 4
+// .pb-1-btn                        - padding-bottom for button version 1
+// .pb-2-btn                        - padding-bottom for button version 2
+//
+// Styleguide oocss.padding
+
+/* ## Paddings */
+
+.p-0 {
+    padding: 0;
+}
+
+.p-gutter {
+    padding: $spacing * 4;
+}
+
+.p-gutter-quarter {
+    padding: $spacing;
+}
+
+.p-0-gutter {
+    padding: 0 ($spacing * 4);
+}
+
+.p-0-gutter-doubled {
+    padding: 0 ($spacing * 8);
+}
+
+.p-gutter-half {
+    padding: $spacing * 2;
+}
+
+.p-0-gutter-half {
+    padding: 0 ($spacing * 2);
+}
+
+.p-0-gutter-quarter {
+    padding: 0 $spacing;
+}
+
+.p-0-gutter-eighth {
+    padding: 0 ($spacing * 0.5);
+}
+
+.p-gutter-0 {
+    padding: ($spacing * 4) 0;
+}
+
+.p-gutter-gutter-doubled {
+    padding: ($spacing * 4) ($spacing * 8);
+}
+
+.p-gutter-doubled-0 {
+    padding: ($spacing * 8) 0;
+}
+
+.p-gutter-half-0 {
+    padding: ($spacing * 2) 0;
+}
+
+.pt-0 {
+    padding-top: 0;
+}
+
+.pl-0 {
+    padding-left: 0;
+}
+
+.pt-gutter {
+    padding-top: $spacing * 4;
+}
+
+.pt-gutter-doubled {
+    padding-top: $spacing * 8;
+}
+
+.pt-gutter-half {
+    padding-top: $spacing * 2;
+}
+
+.pb-gutter {
+    padding-bottom: $spacing * 4;
+}
+
+.pb-gutter-doubled {
+    padding-bottom: $spacing * 8;
+}
+
+.pb-gutter-half {
+    padding-bottom: $spacing * 2;
+}
+
+.pltr-gutter {
+    padding-left: $spacing * 4;
+    padding-right: $spacing * 4;
+}
+
+/* ### Padding for buttons:
+ * Pretending the height of buttons on parent containers.
+ * 1 button height = padding-top of .btn-wrapper + .btn's height + btn margin-top + btn margin-bottom + padding-bottom of .btn-wrapper.
+ */
+.pb-1-btn {
+    padding-bottom: 88px;
+}
+
+.pb-2-btn {
+    padding-bottom: 140px;
+}
+
+// button reset
+//
+// button reset class
+//
+// Markup:
+// <button class="btn--reset" type="button">Button</div>
+//
+// Deprecated: BEM violation, will be removed with one of the next major versions
+//
+// .btn--reset                   - padding, border, background-color reset + outline definition
+//
+// Styleguide oocss.button--reset
+
+.btn--reset {
+    padding: 0;
+    border: 0;
+    background-color: $transparent;
+    @include outline-inset;
+}
+
+// center
+//
+// center on X and Y axis
+//
+// Markup:
+// <div class="{{modifier_class}}">center</div>
+//
+// .center-x                            - &nbsp;
+// .center-y                            - &nbsp;
+// .center-x-y                          - &nbsp;
+//
+// Styleguide oocss.center
+
+/*
+ * # Center on X and Y axis
+ */
+.center-x {
+    left: 0;
+    @include center-x;
+}
+
+.center-y {
+    top: auto;
+    @include center-y;
+}
+
+.center-x-y {
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+// images
+//
+// Markup:
+// <img class="{{modifier_class}}" src="https://s3-eu-central-1.amazonaws.com/trv-companypages/wp-content/uploads/sites/120/2017/04/trivagooffice2018-onlyuseinternally00-01-04-18still009.jpg">center</img>
+//
+// .img-fluid                   - &nbsp;
+// .img-circle                  - &nbsp;
+// .img-rounded                 - &nbsp;
+// .copytext-image              - &nbsp;
+//
+// Styleguide oocss.images
+
+/*
+ # Images
+ */
+
+/* image helpers */
+.img-fluid {
+    max-width: 100%;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.img-rounded {
+    border-radius: $border-radius;
+}
+
+/* ## Images inside copytext */
+.copytext-image {
+    display: block;
+    margin: 0 auto ($spacing * 4);
+}
+
+// positioning
+//
+// .pos-relative                - &nbsp;
+// .pos-absolute                - &nbsp;
+// .pos-static                  - &nbsp;
+// .b-0                         - bottom 0
+//
+// Styleguide oocss.positioning
+
+/* ## Positioning */
+.pos-relative {
+    position: relative;
+}
+
+.pos-absolute {
+    position: absolute;
+}
+
+.pos-static {
+    position: static;
+}
+
+.b-0 {
+    bottom: 0;
+}
+
+// floats
+//
+// .fl-leading                  - &nbsp;
+// .fl-trailing                 - &nbsp;
+//
+// Styleguide oocss.floats
+
+/* ## Floats */
+.fl-leading {
+    float: left;
+}
+
+.fl-trailing {
+    float: right;
+}
+
+// clear
+//
+// .cl-leading                  - &nbsp;
+// .cl-trailing                 - &nbsp;
+// .cl-both                     - &nbsp;
+//
+// Styleguide oocss.clear
+
+/* ## Clearing Floats */
+.cl-leading {
+    clear: left;
+}
+
+.cl-trailing {
+    clear: right;
+}
+
+.cl-both {
+    clear: both;
+}
+
+// pseudo-elements
+//
+// to create pseudo-classes
+//
+// .create-pseudo-before            - &nbsp;
+// .create-pseudo-after             - &nbsp;
+//
+// Styleguide oocss.pseudo-elements
+
+/* ## Create pseudo-elements */
+.create-pseudo-before {
+    &:before {
+        content: '';
+        position: absolute;
+        display: block;
+    }
+}
+
+.create-pseudo-after {
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+    }
+}
+
+// gutter-box
+//
+// basic box styles e.g. for teasers
+//
+// .gutter-box                          - including padding-trailing and padding-leading and a .paragraph class
+//
+// Styleguide oocss.gutter-box
+
+/* ## Gutter box :: basic box styles e.g. for teasers */
+.gutter-box {
+    padding-right: $spacing * 4;
+    padding-left: $spacing * 4;
+
+    .paragraph {
+        padding: ($spacing * 4) 0;
+    }
+}
+
+// box-shadow
+//
+// .box-shadow-01                       - $box-shadow
+// .box-shadow                          - $box-shadow
+//
+// Styleguide oocss.box-shadow
+
+/* ## Box-shadows */
+.box-shadow-01 {
+    box-shadow: $box-shadow;
+}
+
+.box-shadow {
+    box-shadow: $box-shadow;
+}
+
+// flexbox
+//
+// .flex                                - &nbsp;
+// .flex-wrap-wrap                      - &nbsp;
+// .flex-direction-column               - &nbsp;
+// .justify-content-flex-end            - &nbsp;
+// .align-items-stretch                 - &nbsp;
+// .align-self-flex-end                 - &nbsp;
+//
+// Styleguide oocss.flexbox
+
+/*
+ * # Flexbox
+ */
+/* ## Flex parent */
+.flex {
+    display: flex;
+}
+
+.flex-wrap-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-direction-column {
+    flex-direction: column;
+}
+
+.justify-content-flex-end {
+    justify-content: flex-end;
+}
+
+.align-items-stretch {
+    align-items: stretch;
+}
+
+/* ## Flex child */
+.align-self-flex-end {
+    align-self: flex-end;
+}
+
+// border
+//
+// .bt-trv-maincolor-04-very-light          - border top colour
+// .bb-trv-maincolor-04-lightest            - border-bottom colour
+// .bb-trv-maincolor-04-very-light          - border-bottom colour
+// .border-radius                           - &nbsp;
+//
+// Styleguide oocss.border
+
+/*
+ * Borders
+ */
+.bt-trv-maincolor-04-very-light {
+    border-top: 1px solid $trv-maincolor-04-very-light;
+}
+
+.bb-trv-maincolor-04-lightest {
+    border-bottom: 1px solid $trv-maincolor-04-lightest;
+}
+
+.bb-trv-maincolor-04-very-light {
+    border-bottom: 1px solid $trv-maincolor-04-very-light;
+}
+
+/* ## Border Radius */
+.border-radius {
+    border-radius: $border-radius;
+}
+
+// user-select
+//
+// .no-select                               - disable user-select
+//
+// Styleguide oocss.various
+/*
+ * # User select disabling
+ */
+.no-select {
+    user-select: none;
+}

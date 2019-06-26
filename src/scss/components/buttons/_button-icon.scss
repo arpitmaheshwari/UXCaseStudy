@@ -1,0 +1,20 @@
+/*
+ # Button with icon
+ */
+
+/* icon placeholder class */
+/* Modern browsers show properly aligned icons because these are capable of four-value-background-position syntax */
+%btn--icon-ic {
+    background-position: center;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) /*rtl:translateY(-50%) scaleX(-1)*/;
+}
+
+/* btn class */
+.btn--icon {
+    padding: 14px 48px 14px ($spacing * 4);
+    background-position: right 10px;
+}

@@ -1,0 +1,1284 @@
+/*
+ * # Item
+ */
+@import 'reviews-variables';
+
+@mixin gallery-entry-visible() {
+    color: $white;
+    /* stylelint-disable-next-line */
+    background-color: rgba($trv-maincolor-04-dark, $opacity-medium);
+    border-radius: $border-radius;
+    line-height: $line-height-small;
+    bottom: 6px;
+    top: auto;
+    right: auto;
+    z-index: 1;
+    height: auto;
+    width: auto;
+}
+
+.item {
+    box-shadow: $box-shadow;
+    color: $trv-maincolor-04; /* Todo: remove this later when color can be set on body safely. */
+    margin-bottom: $spacing * 2;
+    position: relative;
+    width: 100%; /* IE - PE */
+
+    @include respond-to-min($screen-phablet) {
+        border-radius: $border-radius;
+    }
+
+    &--clickedout {
+        .name__copytext.item-link {
+            color: $trv-maincolor-01-dark;
+        }
+    }
+
+    .no-flexbox & {
+        float: left;
+        width: 100%;
+    }
+
+    .flexbox & {
+        display: flex;
+        flex-wrap: wrap; /* Safari? */
+    }
+
+    /*
+     * ## Column Image area
+     */
+    &__image-area {
+        float: left; /* IE8/9 */
+        padding: ($spacing * 2) $spacing ($spacing * 2) ($spacing * 2);
+        width: 32.5%; // + __flex-column's width = 100%
+        flex: 0 0 auto;
+        max-width: 180px;
+
+        @include respond-to-min($screen-tablet) {
+            width: 30%; // + __flex-column's width = 100%
+        }
+
+        @include respond-to-min($screen-tablet-wide) {
+            width: 22%; // + __flex-column's width = 100%
+        }
+
+        @include respond-to-min($screen-tablet-wider) {
+            padding: ($spacing * 2) 6px ($spacing * 2) ($spacing * 2);
+            width: 22.25%; // + __flex-column's width = 100%
+        }
+
+        @include respond-to-min($screen-medium) {
+            width: 25%;
+            padding: 2px;
+            position: relative;
+            min-width: 215px;
+            min-height: 182px;
+        }
+
+        .flexbox & {
+            flex: 1 0 auto;
+
+            @include respond-to-min($screen-medium) {
+                flex-basis: 25%;
+            }
+        }
+
+        @include link-pseudos-hover {
+            .gallery-entry--more {
+                opacity: $opacity-full;
+            }
+        }
+    }
+
+    &__placeholder-img {
+        background-color: $trv-maincolor-04-lightest;
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        left: 0;
+
+        &--loading {
+            animation: item-page-loader-shimmer 2.5s forwards infinite linear;
+            background: $trv-maincolor-04-lightest
+                linear-gradient(
+                    270deg,
+                    $trv-maincolor-04-lightest 0,
+                    $trv-maincolor-04-very-light 20%,
+                    $trv-maincolor-04-lightest 40%,
+                    $trv-maincolor-04-lightest
+                )
+                no-repeat;
+            background-size: $shimmer-image-size $shimmer-image-size;
+        }
+    }
+
+    @keyframes item-page-loader-shimmer {
+        0% {
+            background-position: -$shimmer-image-size 0;
+        }
+
+        100% {
+            background-position: $shimmer-image-size 0;
+        }
+    }
+
+    &__image-wrapper {
+        line-height: 0; /* Remove bottom spacing between .item__image-placeholder and .item__image-wrapper */
+        overflow: hidden;
+
+        @include respond-to-min($screen-medium) {
+            position: absolute;
+            width: 100%;
+            height: calc(100% - #{$spacing});
+            max-width: 211px;
+        }
+
+        .no-touch &,
+        .windows-touch-override & {
+            &:hover {
+                .gallery-entry {
+                    opacity: $opacity-full;
+                    z-index: 1;
+                }
+
+                .item__image--has-gallery {
+                    transform: scale(1.05);
+
+                    @include respond-to-min($screen-medium) {
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+        }
+
+        &--mapview {
+            &::before {
+                content: '';
+                display: block;
+                padding-top: 100%;
+            }
+        }
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        transition: transform 0.3s;
+
+        @include respond-to-min($screen-medium) {
+            height: 100%;
+            width: auto;
+            min-width: 211px;
+            min-height: 211px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: none;
+            user-select: none; // fix for firefox
+            max-width: unset; // allow image height to grow with content
+        }
+
+        @include link-pseudos-hover {
+            cursor: pointer;
+        }
+
+        &--no-gallery {
+            @include link-pseudos-hover {
+                cursor: default;
+            }
+        }
+    }
+
+    .gallery-entry {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        margin: 0;
+        transition: opacity 0.3s;
+        opacity: $opacity-none;
+        display: block;
+        background: 0;
+        position: absolute;
+        cursor: pointer;
+
+        @include respond-to-min($screen-medium) {
+            @include gallery-entry-visible();
+        }
+
+        &--btn {
+            @include outline-inset($white);
+
+            @include link-pseudos-hover {
+                background-color: $trv-maincolor-04-dark;
+            }
+        }
+
+        &--count {
+            left: 6px;
+            padding: 5px $spacing $spacing;
+            opacity: $opacity-full;
+        }
+
+        &--more {
+            font-weight: normal;
+            right: 6px;
+            left: auto;
+            padding: 5px 26px $spacing ($spacing * 2);
+            max-width: 75%;
+            opacity: $opacity-none;
+            transition: opacity 0.1s linear;
+
+            @include respond-to-min($screen-medium) {
+                right: 6px;
+            }
+        }
+
+        &__ic {
+            width: 10px;
+            height: 6px;
+            right: 6px;
+
+            .svg-color--primary {
+                fill: $white;
+            }
+        }
+
+        &__wrapper {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            height: 71.5%;
+            background-image: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0),
+                rgba(0, 0, 0, 0.25) 60%,
+                rgba(0, 0, 0, 0.75)
+            );
+        }
+
+        &__label {
+            color: $white;
+            font-weight: bold;
+            line-height: initial;
+            padding-top: $spacing * 4;
+            font-size: $font-size-xxs;
+            bottom: $spacing * 2;
+            left: 0;
+            right: 0;
+            position: absolute;
+        }
+    }
+
+    // Flags container in Hotel Details
+    &__flags {
+        display: none;
+
+        @include respond-to-min($screen-tablet-wider) {
+            cursor: default;
+            display: flex;
+            align-items: center;
+            margin-top: -2px;
+
+            .no-flexbox & {
+                display: inline-block;
+            }
+        }
+
+        .item__flag {
+            /* stylelint-disable sh-waqar/declaration-use-variable */
+            background-color: transparent;
+            /* stylelint-enable */
+            outline: 0;
+            margin-right: $spacing * 2;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .has-tooltip {
+            line-height: 0;
+        }
+    }
+
+    // All individual flags
+    &__flag {
+        border: 1px solid transparent;
+        border-radius: $border-radius;
+        font-weight: normal;
+        line-height: 1;
+        padding: $spacing;
+        margin-right: $spacing * 2;
+        float: right; /* IE - PE */
+
+        .flexbox & {
+            align-self: flex-end;
+            order: 1;
+        }
+
+        .item__dynamic-content & {
+            display: block;
+            float: left;
+            margin-right: $spacing * 3;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &--rated {
+            color: $trv-maincolor-05-dark;
+            border-color: $trv-maincolor-05;
+            outline: 0; // no accessibility to slideouts
+
+            @include link-pseudos-hover {
+                cursor: pointer;
+            }
+        }
+
+        &.flag--icon {
+            background-color: $white;
+            border-radius: 0 $border-radius $border-radius 0;
+            border-width: 1px 1px 1px 0;
+            bottom: $spacing;
+            display: inline-block;
+            height: 24px;
+            left: 0;
+            min-width: 32px;
+            position: absolute;
+            width: 32px;
+
+            @include respond-to-min($screen-tablet-wider) {
+                display: none;
+            }
+        }
+
+        &.flag--new {
+            color: $trv-maincolor-02-dark;
+            border-color: $trv-maincolor-02-dark;
+            order: 0;
+        }
+
+        &.flag--news {
+            color: $trv-maincolor-01-light;
+            border-color: $trv-maincolor-01-light;
+            outline: 0; // no accessibility to slideouts
+        }
+
+        &.flag--deal-best {
+            display: none;
+
+            @include respond-to-min($screen-tablet-wider) {
+                display: block;
+                border-radius: $border-radius 0 0 $border-radius;
+                position: absolute;
+                right: -$spacing * 2;
+                margin-right: 0;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    &__rate-attributes {
+        display: block;
+        color: $trv-maincolor-05;
+        margin-bottom: $spacing;
+        font-size: $font-size-3xs;
+
+        @include respond-to-min($screen-tablet-wide) {
+            width: 100%;
+            padding: $spacing;
+            border: 1px solid $trv-maincolor-05;
+            @include text-overflow;
+            text-align: center;
+            line-height: 1;
+        }
+    }
+
+    /*
+     * ## Flex column - helping wrapper
+     */
+    &__flex-column {
+        float: left; /* IE - pe */
+        width: 67.5%; // content ~ 216px
+        flex: 1 0 auto;
+
+        .flexbox & {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+
+        @include respond-to-min($screen-tablet) {
+            width: 70%; // + __image-area's width = 100%
+        }
+
+        @include respond-to-min($screen-tablet-wide) {
+            width: 78%; // + __image-area's width = 100%
+
+            .flexbox & {
+                flex-direction: row;
+            }
+        }
+
+        @include respond-to-min($screen-tablet-wider) {
+            width: 77.75%; // + __image-area's width = 100%
+        }
+
+        @include respond-to-min($screen-medium) {
+            width: 75%;
+        }
+    }
+
+    /*
+     * ## Column Deal Details
+     */
+    &__details {
+        position: relative;
+        clear: both; /* clear float */
+        padding: ($spacing * 2) 0 $spacing;
+        margin: 0 ($spacing * 2) ($spacing * 2) $spacing;
+        float: none;
+        border-bottom: 1px solid $trv-maincolor-04-lightest;
+
+        .no-flexbox & {
+            float: left;
+        }
+
+        @include respond-to-min($screen-tablet-wide) {
+            width: 55%;
+            margin: ($spacing * 2) 0;
+            border-bottom: 0;
+            border-right: 1px solid $trv-maincolor-04-very-light;
+            float: left;
+            padding: 0 ($spacing * 2) 0 $spacing;
+        }
+
+        @include respond-to-min($screen-tablet-wider) {
+            width: 45.75%; // + __deal-other's and __'s width = 100%
+            border-right: 1px solid $trv-maincolor-04-very-light;
+            flex: 1 1 auto;
+        }
+
+        @include respond-to-min($screen-medium) {
+            width: 56%;
+            padding: 0 ($spacing * 3) 0 10px;
+        }
+    }
+
+    &__name {
+
+        /* Don't set negative margin-top values here or
+         * characters with accents won't be visible anymore
+         */
+        display: inline-block;
+        font-size: $font-size-xs;
+        line-height: $line-height-small;
+        width: 100%;
+
+        @include respond-to-min($screen-tablet-wide) {
+            margin-bottom: $spacing * 3;
+        }
+
+        @include respond-to-min($screen-tablet-wider) {
+            margin-bottom: $spacing * 4;
+            font-size: $font-size-s;
+        }
+
+        @include respond-to-min($screen-medium) {
+            margin-bottom: $spacing;
+        }
+
+        .name__copytext {
+            font-size: $font-size-xxs;
+            width: 100%;
+            float: left;
+            @include text-overflow;
+
+            @include respond-to-min($screen-tablet) {
+                font-size: $font-size-xs;
+                line-height: $line-height-small;
+            }
+
+            @include respond-to-min($screen-tablet-wider) {
+                font-size: $font-size-s;
+            }
+        }
+    }
+
+    &__accommodation-type {
+        font-size: $font-size-3xs;
+        white-space: nowrap;
+        margin-right: $spacing * 2;
+        position: relative;
+        bottom: 2px;
+
+        @include respond-to-min($screen-tablet) {
+            font-size: $font-size-xxs;
+        }
+
+        @include respond-to-min($screen-tablet-wider) {
+            bottom: 1px;
+        }
+    }
+
+    .name {
+        &__superior {
+            position: relative;
+            top: -$spacing * 0.5;
+            display: inline-block;
+            height: 11px;
+            width: 8px;
+            margin: 1px 0 0 ($spacing * 0.5);
+
+            .svg-color--primary {
+                fill: $trv-maincolor-02-light;
+            }
+        }
+
+        &__extended-text {
+            font-size: $font-size-3xs;
+            font-weight: 400;
+            white-space: nowrap;
+            position: relative;
+            top: -1px;
+            margin-left: 0;
+            margin-right: $spacing * 2;
+
+            @include respond-to-min($screen-tablet) {
+                font-size: $font-size-xxs;
+                top: 0;
+            }
+        }
+    }
+
+    &__mini-icon {
+        background-position: 50% 50%;
+        background-size: 60% auto;
+        background-repeat: no-repeat;
+        background-color: $trv-maincolor-04-very-light;
+        height: 18px;
+        margin-right: $spacing * 2;
+        padding: $spacing;
+        width: 18px;
+
+        @include respond-to-min($screen-tablet) {
+            height: 24px;
+            margin-bottom: $spacing;
+            width: 24px;
+        }
+
+        .location & {
+            display: none;
+        }
+
+        // Background colors need to be numerical increasing from 1 to 5
+        &-color-1 {
+            background-color: $trv-maincolor-03;
+        }
+
+        &-color-2 {
+            background-color: $trv-maincolor-02;
+        }
+
+        &-color-3 {
+            background-color: $trv-maincolor-05-light;
+        }
+
+        &-color-4 {
+            background-color: $trv-maincolor-05;
+        }
+
+        &-color-5 {
+            background-color: $trv-maincolor-05-dark;
+        }
+    }
+
+    .slideout-toggle-ic {
+        flex: 0 0 10px;
+        width: 10px;
+        height: 6px;
+    }
+
+    /*
+     * ## Column Deal Other
+     */
+    &__deal-other {
+        display: none;
+
+        @include respond-to-min($screen-tablet-wide) {
+            border-right: 1px solid $trv-maincolor-04-very-light;
+        }
+
+        @include respond-to-min($screen-tablet-wider) {
+            color: $trv-maincolor-04-light;
+            display: block;
+            flex: 0 0 auto;
+            float: left; /* IE8/9 */
+            font-size: $font-size-3xs;
+            margin: ($spacing * 2) 0;
+            max-width: 115px;
+            padding: $spacing * 2;
+            padding: 0 ($spacing * 2);
+            text-align: center;
+            width: 21.5%;
+
+            .flexbox & {
+                align-self: stretch;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                // possible due to markup changes and works with the margin-top approach on the button itself even with IE10/IE11
+                justify-content: flex-start;
+            }
+        }
+
+        @include respond-to-min($screen-medium) {
+            flex: 0 0 20%;
+            max-width: 115px;
+        }
+    }
+
+    .deal-other {
+        &__advertiser {
+            display: block;
+            overflow-wrap: break-word;
+            margin: 0;
+        }
+
+        &__offer {
+            margin-bottom: $spacing * 2;
+
+            @include respond-to-min($screen-tablet-wider) {
+                margin-bottom: 10px;
+            }
+        }
+
+        &__button {
+            width: 100%;
+            max-width: 100%;
+            text-decoration: none;
+            @include outline();
+
+            @include link-pseudos-hover {
+                text-decoration: underline;
+            }
+
+            &--highlight {
+                border-radius: $border-radius;
+                margin-bottom: -$spacing;
+                padding: $spacing;
+                width: 100%;
+
+                & + .deal-other__tooltip {
+                    top: 0;
+                }
+
+                .deal-other__advertiser {
+                    hyphens: auto;
+                }
+            }
+
+            &--disabled {
+                /* stylelint-disable sh-waqar/declaration-use-variable */
+                color: inherit;
+                /* stylelint-enable */
+                opacity: $opacity-half;
+                text-decoration: none;
+
+                @include link-pseudos-hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &__tooltip {
+            left: -85px;
+        }
+    }
+
+    .deals__price {
+        display: block;
+    }
+
+    .deal-other__top-alternatives {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1 1 auto;
+    }
+
+    .deal-other__more {
+        width: auto;
+        padding: ($spacing * 2) 0 0;
+        border-top: 1px solid $trv-maincolor-04-lightest;
+        font-weight: bold;
+        color: $trv-maincolor-04;
+        margin-top: auto; // flexbox's best kept secret - https://medium.com/@samserif/flexbox-s-best-kept-secret-bd3d892826b6#.oa9cp91mk
+        // For older versions of Edge which will not wrap this content properly, causing it to overflow its
+        // content box
+        max-width: 100%;
+        word-wrap: break-word;
+
+        // Help ensure this button remains at the bottom when there are not enough alternative (price) items above it
+        &.btn--fix-to-bottom {
+            position: absolute;
+            left: $spacing * 2;
+            right: $spacing * 2;
+            width: 85%;
+            bottom: $spacing * 2;
+            padding: $spacing * 2;
+            text-align: center;
+        }
+
+        @include link-pseudos-focus {
+            outline: 0;
+        }
+    }
+
+    /*
+     * ## Column Deal Best
+     */
+    &__deal-best {
+        width: 100%; /* IE - PE in small viewports */
+        padding: 0 ($spacing * 2) ($spacing * 2) $spacing;
+
+        @include respond-to-min($screen-tablet-wide) {
+            width: 45%;
+            padding: $spacing * 2;
+
+            .flexbox & {
+                display: flex;
+                align-items: stretch;
+            }
+        }
+
+        @include respond-to-min($screen-tablet-wider) {
+            flex: 0 0 32.75%;
+            max-width: 230px;
+            width: 32.75%;
+        }
+
+        @include respond-to-min($screen-medium) {
+            flex: 0 0 32%;
+            max-width: 211px;
+        }
+
+        // Todo: get rid of .no-flexbox class.
+        .no-flexbox & {
+            float: right;
+        }
+
+        &-link {
+            .flexbox & {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+
+                &--disabled {
+                    // IE11 fixes
+                    flex: 1 1 100%;
+                    align-items: stretch;
+                }
+            }
+
+            &:not(.item__deal-best-link--disabled):not(.item__deal-best-link--nohover) {
+                @include link-pseudos-hover {
+                    cursor: pointer;
+
+                    .btn--deal {
+                        background-color: $trv-maincolor-05-dark;
+                    }
+
+                    .btn--disabled {
+                        background-color: $trv-maincolor-04-very-light;
+                    }
+
+                    .item__best-price,
+                    .item__deal-best-ota,
+                    .item__deal-best-ota-name,
+                    .item__deal-best-ota-flag {
+                        text-decoration: underline;
+                    }
+
+                    .item__deal-best-ota--max {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            @include link-pseudos-focus {
+                .btn--deal {
+                    background-color: $trv-maincolor-05-dark;
+                }
+
+                .btn--disabled {
+                    background-color: $trv-maincolor-04-very-light;
+                }
+            }
+
+            @include respond-to-min($screen-tablet-wide) {
+                .flexbox & {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    width: 100%;
+                }
+            }
+
+            &.incomplete {
+                cursor: default;
+                background-image: url($image-incomplete-loader);
+                background-position: 0% 70%;
+                background-repeat: no-repeat;
+
+                @include respond-to-min($screen-tablet-wide) {
+                    background-position: 50% 40%;
+                }
+            }
+        }
+
+        &-headline {
+            display: none;
+
+            @include respond-to-min($screen-phablet) {
+                display: block;
+                font-size: $font-size-3xs;
+                color: $trv-maincolor-04-lighter;
+                text-align: left;
+            }
+
+            @include respond-to-min($screen-tablet) {
+                order: 2;
+            }
+
+            @include respond-to-min($screen-tablet-wide) {
+                text-align: center;
+            }
+
+            @include respond-to-min($screen-tablet-wider) {
+                display: none;
+            }
+        }
+
+        /*
+         * The buttons styles are moved in cascade of .item__deal-best so
+         * modifications of item's button are not modifiying slideout's
+         * buttons anymore.
+         */
+        .btn {
+            float: right;
+            overflow: hidden; // Reset button to plain square.
+            width: 52%; // + __best-details <= 100%
+            height: 36px;
+            min-height: 36px;
+            margin: 0;
+            padding: 0;
+            font-size: $font-size-xxs;
+            background-position: -100px 50%;
+            background-repeat: no-repeat;
+
+            .flexbox & {
+                float: none;
+            }
+
+            @include respond-to-min($screen-phablet) {
+                width: 50%;
+            }
+
+            // Set icon x-pos background position
+            $iconBackgroundXPos: 98%;
+            @if ($leading == right) {
+                // rtl
+                $iconBackgroundXPos: 2%;
+            }
+
+            @include respond-to-min($screen-tablet) {
+                margin-top: 7px;
+                order: 6;
+                background-position: $iconBackgroundXPos 50%;
+            }
+
+            //increase button size on bigger screens
+            @include respond-to-min($screen-tablet-wide) {
+                width: 100%;
+                margin-top: 0;
+            }
+
+            &.btn--disabled {
+                @include respond-to-min($screen-tablet) {
+                    background-position: $iconBackgroundXPos 2px top 50%;
+                }
+            }
+        }
+
+        // Delay the appearance of the tooltips
+        .has-tooltip {
+            .tooltip-wrapper {
+                visibility: hidden;
+                transition-property: visibility;
+            }
+
+            .tooltip {
+                display: inline-block;
+            }
+
+            &:hover {
+                .tooltip-wrapper {
+                    visibility: visible;
+                    transition-delay: 0.5s;
+                }
+            }
+        }
+    }
+
+    .item__deal-best-link--disabled {
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+
+    .item__deal-best-link--pro-link {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .tooltip-wrapper {
+        &--top-trailing,
+        &--top-center {
+            margin-bottom: $spacing * 3;
+        }
+    }
+
+    &__best-details {
+        clear: both;
+        float: left;
+        width: 46%;
+
+        .flexbox & {
+            clear: none;
+            float: none;
+        }
+
+        @include respond-to-min($screen-tablet) {
+            order: 3;
+        }
+
+        @include respond-to-min($screen-tablet-wide) {
+            margin: 0 auto;
+            float: none;
+            text-align: center;
+            width: auto;
+
+            .flexbox & {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                flex-grow: 2; /* Give this container the remaining height between ".item__deal-best-link" and ".btn" */
+            }
+        }
+
+        &--with-strikethrough {
+            .item__deal-best-ota--max {
+                display: none;
+            }
+
+            .strikethough__wrapper {
+                display: flex;
+                flex-flow: column;
+
+                .tooltip-wrapper--top-trailing {
+                    right: 50%;
+                    transform: translateX(24px);
+                }
+            }
+
+            .item__deal-best-ota {
+                order: -1;
+            }
+
+            @include respond-to-min($screen-tablet-wide) {
+                .strikethough__wrapper {
+                    display: block;
+                }
+
+                .item__deal-best-ota--max {
+                    order: initial;
+                    display: block;
+                }
+
+                .item__flag {
+                    z-index: 2;
+                    position: relative;
+                }
+
+                .item__deal-best-ota {
+                    color: $trv-maincolor-05;
+                    font-size: $font-size-3xs;
+                    margin-bottom: $spacing;
+
+                    &--max {
+                        color: $trv-maincolor-03;
+                    }
+                }
+
+                .item__strikethrough-price {
+                    margin-bottom: $spacing * 2;
+                }
+            }
+        }
+    }
+
+    &__strikethrough-price {
+        display: block;
+        font-size: $font-size-xxs;
+        line-height: 1;
+        font-weight: bold;
+        color: $trv-maincolor-03;
+        margin: ($spacing * 0.5) 0;
+
+        @include respond-to-min($screen-tablet) {
+            font-size: $font-size-xs;
+        }
+
+        @include respond-to-min($screen-tablet-wide) {
+            position: relative;
+            /* stylelint-disable sh-waqar/declaration-use-variable  */
+            font-size: 18px;
+            /* stylelint-enable */
+            white-space: pre;
+            margin: 0 0 $spacing;
+        }
+    }
+
+    &__best-price {
+        display: inline-block;
+        font-size: $font-size-xxs;
+        color: $trv-maincolor-05;
+
+        &--perstay {
+            display: block;
+        }
+
+        @include respond-to-min($screen-tablet-wide) {
+            display: block;
+            /* stylelint-disable sh-waqar/declaration-use-variable  */
+            font-size: 18px;
+            /* stylelint-enable */
+        }
+    }
+
+    &__deal-best-ota {
+        overflow: hidden;
+        @include text-overflow;
+        font-size: $font-size-3xs;
+
+        @include respond-to-min($screen-tablet-wide) {
+            margin-bottom: $spacing * 2;
+        }
+
+        &--flagged {
+            text-overflow: initial;
+        }
+    }
+
+    &__deal-best-ota-flag {
+        color: $trv-maincolor-04-light;
+        text-decoration: none;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &__deal-best-ota-name {
+        @include text-overflow;
+        display: inline-block;
+        max-width: 70%;
+        vertical-align: middle;
+    }
+
+    &__worst-price {
+        display: inline-flex;
+        flex-direction: column;
+        z-index: 1;
+
+        .item__strikethrough-price {
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            .item__deal-best-ota--max {
+                text-decoration: underline;
+            }
+
+            .item__strikethrough-price {
+                text-decoration: underline line-through;
+            }
+        }
+    }
+
+    .deal {
+        &__wrapper {
+            width: 52%;
+
+            @include respond-to-min($screen-small) {
+                width: 50%;
+                order: 6;
+            }
+
+            @include respond-to-min($screen-tablet-wide) {
+                width: 100%;
+            }
+
+            .btn--deal {
+                width: 100%;
+
+                @include respond-to-min($screen-small) {
+                    margin-top: 0;
+                }
+
+                .btn__ic {
+                    right: $spacing * 2;
+                    display: none;
+
+                    @include respond-to-min($screen-small) {
+                        display: inline-block;
+                    }
+                }
+
+                .svg-color--primary {
+                    stroke: $white;
+                }
+
+                &.btn--unavailable {
+                    .svg-color--primary {
+                        fill: $white;
+                        stroke: none;
+                    }
+                }
+            }
+        }
+
+        &__flag {
+            display: inline-block;
+            margin-bottom: $spacing;
+            color: $trv-maincolor-04-light;
+            font-size: $font-size-3xs;
+
+            &--positive {
+                color: $trv-maincolor-05;
+            }
+
+            @include respond-to-min($screen-tablet-wide) {
+                display: none;
+            }
+        }
+    }
+
+    &__hint-change {
+        width: 80%;
+        margin: 0 auto ($spacing * 8);
+    }
+
+    /*
+     * ## Slideout Container
+     */
+
+    &__slideout {
+        .no-flexbox & {
+            clear: both;
+        }
+
+        width: 100%;
+
+        // Toggles class "slideout--inactive" via JS
+        &.slideout--inactive {
+            max-height: 0;
+        }
+
+        // Slideout Navigation
+        &-nav {
+            height: 33px;
+            border-top: 1px solid $trv-maincolor-04-very-light;
+            border-bottom: 1px solid $trv-maincolor-04-lighter;
+        }
+
+        // Close button in slideouts
+        &-close {
+            width: 12px;
+            height: 12px;
+            margin: 10px;
+
+            @include link-pseudos-hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__wrapper {
+        width: 100%;
+
+        .flexbox & {
+            display: flex;
+        }
+
+        .item__flex-column {
+            height: 100%;
+        }
+    }
+
+    .item-link {
+        color: $text;
+        cursor: pointer;
+
+        @include link-pseudos-hover {
+            text-decoration: none;
+        }
+
+        @include outline;
+
+        &[tabindex='-1']:focus {
+            outline: none;
+        }
+
+        &--text {
+            cursor: text;
+        }
+    }
+
+    &__min-price-mobile {
+        height: 24px;
+        line-height: 16px;
+        margin: 0 ($spacing * 2);
+        padding: $spacing 0;
+        text-align: center;
+        width: 100%;
+        border-top: 1px solid $trv-maincolor-04-lightest;
+        outline: 0;
+        font-size: $font-size-3xs;
+    }
+
+    &__per-night {
+        display: block;
+        font-size: $font-size-3xs;
+        color: $trv-maincolor-04;
+
+        @include respond-to-min($screen-tablet-wide) {
+            margin-left: 0;
+            margin-bottom: $spacing * 2;
+        }
+    }
+}

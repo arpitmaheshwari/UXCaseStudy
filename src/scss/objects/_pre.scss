@@ -1,0 +1,17 @@
+// pre
+//
+// Markup:
+// <pre class="pre">.pre { white-space: pre-wrap; }</p>
+//
+// Styleguide objects.pre
+
+.pre {
+    white-space: pre-wrap;
+    @include text-overflow;
+
+    &__string {
+        display: block;
+        white-space: pre-wrap;
+        width: 100%;
+    }
+}

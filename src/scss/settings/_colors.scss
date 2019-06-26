@@ -1,0 +1,192 @@
+/*
+ * # Colors
+ */
+
+/// white
+/// @type string
+/// @group color
+$white: #fff;
+/// black
+/// @type string
+/// @group color
+$black: #000;
+/// transparent
+/// @type string
+/// @group color
+$transparent: transparent;
+
+/// blue
+/// @type string
+/// @group color
+$trv-maincolor-01: #007fad;
+/// blue-lightest
+/// @type string
+/// @group color
+$trv-maincolor-01-lightest: #e5f2f6;
+/// blue-very-light
+/// @type string
+/// @group color
+$trv-maincolor-01-very-light: #bfdfea;
+/// blue-lighter
+/// @type string
+/// @group color
+$trv-maincolor-01-lighter: #7fbfd6;
+/// blue-light
+/// @type string
+/// @group color
+$trv-maincolor-01-light: #3f9fc1;
+/// blue-dark
+/// @type string
+/// @group color
+$trv-maincolor-01-dark: #005f81;
+
+/// orange
+/// @type string
+/// @group color
+$trv-maincolor-02: #f48f00;
+/// orange-lightest
+/// @type string
+/// @group color
+$trv-maincolor-02-lightest: #fdf3e5;
+/// orange-very-light
+/// @type string
+/// @group color
+$trv-maincolor-02-very-light: #fce3bf;
+/// orange-lighter
+/// @type string
+/// @group color
+$trv-maincolor-02-lighter: #f9c77f;
+/// orange-light
+/// @type string
+/// @group color
+$trv-maincolor-02-light: #f6ab3f;
+/// orange-dark
+/// @type string
+/// @group color
+$trv-maincolor-02-dark: #b76b00;
+
+/// red
+/// @type string
+/// @group color
+$trv-maincolor-03: #c94a30;
+/// red-lightest
+/// @type string
+/// @group color
+$trv-maincolor-03-lightest: #f9ecea;
+/// red-very-light
+/// @type string
+/// @group color
+$trv-maincolor-03-very-light: #f1d1cb;
+/// red-lighter
+/// @type string
+/// @group color
+$trv-maincolor-03-lighter: #e4a497;
+/// red-light
+/// @type string
+/// @group color
+$trv-maincolor-03-light: #d67763;
+/// red-dark
+/// @type string
+/// @group color
+$trv-maincolor-03-dark: #963724;
+
+/// juri-blue
+/// @type string
+/// @group color
+$trv-maincolor-04: #37454d;
+/// juri-blue-lightest
+/// @type string
+/// @group color
+$trv-maincolor-04-lightest: #ebeced;
+/// juri-blue-very-light
+/// @type string
+/// @group color
+$trv-maincolor-04-very-light: #cdd0d2;
+/// juri-blue-lighter
+/// @type string
+/// @group color
+$trv-maincolor-04-lighter: #9ba2a6;
+/// juri-blue-light
+/// @type string
+/// @group color
+$trv-maincolor-04-light: #697379;
+/// juri-blue-dark
+/// @type string
+/// @group color
+$trv-maincolor-04-dark: #293339;
+
+/// green
+/// @type string
+/// @group color
+$trv-maincolor-05: #428500;
+/// green-lightest
+/// @type string
+/// @group color
+$trv-maincolor-05-lightest: #ecf3e6;
+/// green-very-light
+/// @type string
+/// @group color
+$trv-maincolor-05-very-light: #cfe0bf;
+/// green-lighter
+/// @type string
+/// @group color
+$trv-maincolor-05-lighter: #a0c280;
+/// green-light
+/// @type string
+/// @group color
+$trv-maincolor-05-light: #71a340;
+/// green-dark
+/// @type string
+/// @group color
+$trv-maincolor-05-dark: #316300;
+
+/// rating-color-01
+/// @type string
+/// @group color
+$rating-color-01: #a3171a !default;
+/// rating-color-02
+/// @type string
+/// @group color
+$rating-color-02: #e57a00 !default;
+/// rating-color-03
+/// @type string
+/// @group color
+$rating-color-03: #98bf6a !default;
+/// rating-color-04
+/// @type string
+/// @group color
+$rating-color-04: #72ac2f !default;
+/// rating-color-05
+/// @type string
+/// @group color
+$rating-color-05: #007400 !default;
+
+/// text-color
+/// @type string
+/// @group color
+$text: $trv-maincolor-04;
+/// text-color light
+/// @type string
+/// @group color
+$text-light: #c9c7c7 !default;
+/// text-color medium
+/// @type string
+/// @group color
+$text-medium: #757575 !default;
+
+/// background-color
+/// @type string
+/// @group color
+$background: #f3f3f3 !default;
+/// background-color medium
+/// @type string
+/// @group color
+$background-medium: #e1e1e1 !default;
+/// background-color light
+/// @type string
+/// @group color
+$background-light: #fbfbfb !default;
+/// background-color disabled
+/// @type string
+/// @group color
+$background-disabled: #eee !default;

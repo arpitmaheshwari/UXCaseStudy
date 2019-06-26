@@ -1,0 +1,13 @@
+<div>
+    <div class="centerwrapper">
+        <ol class="hotel-list">
+            {% for item in items %}
+                <li class="hotel-item-wrapper" key="item{{loop.index}}">
+                    {% mount '../item' as 'item#{loop.index}' with {
+                        item: item
+                    } %}
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>

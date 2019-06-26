@@ -1,0 +1,22 @@
+/*
+ # Regular button size
+ */
+
+/* mixin for responsive button */
+@mixin btn-regular($icon-position: null) {
+    font-size: $font-size-xs;
+    min-height: $btn-height-regular;
+    line-height: 1;
+    @if $icon-position == 'icon-leading' {
+        padding: 13px ($spacing * 3) 11px 46px;
+    } @else if $icon-position == 'icon-trailing' {
+        padding: 13px 46px 11px ($spacing * 3);
+    } @else {
+        padding: 13px 13px 11px;
+    }
+}
+
+/* btn class */
+.btn--regular {
+    @include btn-regular;
+}

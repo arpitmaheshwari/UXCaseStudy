@@ -1,0 +1,58 @@
+// centerwrapper
+//
+// Markup:
+// <div class="centerwrapper {{modifier_class}}">Centerwrapper</div>
+//
+// .centerwrapper                                   - &nbsp;
+// .centerwrapper--wide                             - &nbsp;
+// .centerwrapper--narrow                           - &nbsp;
+// .centerwrapper--narrow-iframe                    - &nbsp;
+// .centerwrapper--narrower                         - &nbsp;
+// .centerwrapper--item                             - &nbsp;
+// .centerwrapper--textblock                        - &nbsp;
+//
+// Styleguide objects.container
+
+.centerwrapper {
+    position: relative;
+    width: 100%;
+    max-width: $item-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $spacing * 4;
+    padding-right: $spacing * 4;
+
+    &--item {
+        padding: 0;
+        max-width: none;
+
+        .in-homepage-view & {
+            max-width: 1082px;
+        }
+
+        .in-map-blank &,
+        .in-hotel-results-view & {
+            @include respond-to-min($screen-phablet) {
+                padding: 0 ($spacing * 3);
+            }
+
+            @include respond-to-min($screen-tablet-wider) {
+                padding: 0 ($spacing * 4);
+            }
+
+            @include respond-to-min($screen-large) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+
+    &--text-block {
+        max-width: 640px;
+
+        @include respond-to-min($screen-medium) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
