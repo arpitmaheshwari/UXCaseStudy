@@ -14,20 +14,26 @@ Specs:-
 Assumptions:-
 # CTA labelled "View deal" are links.
 
+
 Open questions?
-# Difference between sass partials _mediaqueries.scss and _breakpoints.scss
+# Difference between sass partials _mediaqueries.scss and _breakpoints.scss?
+# Why has developer decided to use font-sizes in pixels?
+
 
 Decisions:-
 # I prefer box-sizing as border-box.
-# As I have not seen the designs for all the page, I am not introducing CSS grid or any custom grid framework.
-# The page design has a single icon. Its not efficient to load a large font icon file for a single icon. The existing svg-xml is a optimized solution.
+# As I have not seen the designs for the complete website, I am not introducing CSS grid or any custom grid framework. Grid should only be added, if required
+# The page design has a single icon. Its not efficient to load a large font icon file for a single icon. The existing svg-xml is already an optimized solution.
+# For better UX and visual consistency, I am aligning the prices with heading and rating. Refer - https://enginess.io/insights/6-principles-design-la-donald-norman
 
 
 Mobile best practices:-
 # The recommended size of CTA is 44px in-order to capture thumb clicks.
 # In portrait mode, the CTAs should be span across page to facilitate left hand and right hand usage.
+# Http calls should be minimized. So, no web fonts and font icons.
 
-Semantic mark-up for wrapper file
+
+Semantic mark-up for main/index.twig. I believe melody framework is not allowing me to change tags.
 <main>
     <article class="centerwrapper">
         <ul class="hotel-list">
