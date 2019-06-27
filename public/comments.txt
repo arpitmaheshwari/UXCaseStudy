@@ -1,1 +1,43 @@
 Type comments here!
+
+Specs:-
+# Browser support: IE11(not in compatibility mode), Latest Edge, Chrome, Firefox, OPera
+# Testing locale: English
+# Responsive: Yes
+# Web accessibility standards compliant: No
+# Screen reader friendly: Yes
+# Keyboard navigatable: Yes
+# Tags for SEO: Yes
+# Tags for opengraph: Yes
+
+
+Assumptions:-
+# CTA labelled "View deal" are links.
+
+Open questions?
+# Difference between sass partials _mediaqueries.scss and _breakpoints.scss
+
+Decisions:-
+# I prefer box-sizing as border-box.
+# As I have not seen the designs for all the page, I am not introducing CSS grid or any custom grid framework.
+# The page design has a single icon. Its not efficient to load a large font icon file for a single icon. The existing svg-xml is a optimized solution.
+
+
+Mobile best practices:-
+# The recommended size of CTA is 44px in-order to capture thumb clicks.
+# In portrait mode, the CTAs should be span across page to facilitate left hand and right hand usage.
+
+Semantic mark-up for wrapper file
+<main>
+    <article class="centerwrapper">
+        <ul class="hotel-list">
+            {% for item in items %}
+                <li class="hotel-item-wrapper" key="item{{loop.index}}">
+                    {% mount '../item' as 'item#{loop.index}' with {
+                        item: item
+                    } %}
+                </li>
+            {% endfor %}
+        </ul>
+    </article>
+</main>

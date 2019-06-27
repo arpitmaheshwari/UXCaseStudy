@@ -1,6 +1,6 @@
-<div>
-    <div class="centerwrapper">
-        <ol class="hotel-list">
+<div role="main">
+    <div class="centerwrapper" role="article">
+        <ul class="hotel-list">
             {% for item in items %}
                 <li class="hotel-item-wrapper" key="item{{loop.index}}">
                     {% mount '../item' as 'item#{loop.index}' with {
@@ -8,6 +8,6 @@
                     } %}
                 </li>
             {% endfor %}
-        </ol>
+        </ul>
     </div>
 </div>
