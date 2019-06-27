@@ -29,17 +29,17 @@
 
     &__footer {
         display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
+        justify-content: space-between;
     }
 
     &__deals {
+        display: flex;
         margin-right: $spacing * 3;
-        text-align: right;
+        //text-align: right;
     }
 
     &__deal {
-        margin: 0;
+        margin: 0 14px 0 0;
         line-height: $line-height-small;
 
         &--high {
@@ -48,7 +48,7 @@
     }
 
     &__price {
-        padding-left: $spacing * 3;
+        //padding-left: $spacing * 3;
 
         &--high {
             color: $trv-maincolor-03;
