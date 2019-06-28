@@ -1,4 +1,6 @@
 .hotel-item {
+    $image-size-desktop: 278px !default;// Image size should not vary with the size of screen for desktop. So px is a good choice.
+
     background-color: $white;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
@@ -13,7 +15,7 @@
     }
 
     &__image-container {
-        //flex: 0 0 278px; //Let the sibling container manage the size
+        //flex: 0 0 278px; //Let the sibling container manage flex box size
         margin: 0;
 
         &>img{
@@ -24,7 +26,7 @@
     }
 
     &__details {
-        flex: 0 0 calc(100% - 278px - #{$spacing * 3});
+        flex: 0 0 calc(100% - #{$image-size-desktop} - #{$spacing * 3});
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -52,6 +54,11 @@
 
         @include respond-to-max($screen-tablet-wider){
             margin: $spacing * 3 0 0 0 ;
+        }
+
+        @include respond-to-max($screen-tablet){
+            align-items: flex-start;
+            flex-direction: column;
         }
     }
 
@@ -83,6 +90,13 @@
             color: $trv-maincolor-05;
             //font-size: $font-size-s;
             font-weight: bold;
+        }
+    }
+
+    &__co{
+        @include respond-to-max($screen-tablet){
+            align-self: stretch;
+            margin-top: $spacing * 5;
         }
     }
 

@@ -22,7 +22,6 @@ Assumptions:-
 
 Open questions:-
 # Difference between sass partials _mediaqueries.scss and _breakpoints.scss?
-# Why has developer chosen to use font-sizes in pixels?
 
 
 Decisions:-
@@ -34,10 +33,11 @@ Decisions:-
 
 Mobile best practices:-
 # The recommended size of CTA is 44px in-order to capture thumb clicks.
-# Http calls should be minimized. So, no web fonts and font icons.
+# Http calls should be minimized.
+# Mobiles can be used in both left hand and right hand. CTAs should span across screen to facilitate the right hand and the left hand usage.
 
 
-Semantic mark-up for main/index.twig. I believe, the melody framework is not allowing me to change the tags. Therefore, I have added the 'role' attribute for screen readers and crawlers.
+Semantic mark-up for main/index.twig. I guess, the melody framework is not allowing me to change the tags. Therefore, I have added the 'role' attribute for screen readers and web crawlers.
 <main>
     <article class="centerwrapper">
         <ul class="hotel-list">
