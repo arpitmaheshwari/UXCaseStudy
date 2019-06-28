@@ -1,5 +1,6 @@
 .hotel-item {
-    $image-size-desktop: 278px !default;// Image size should not vary with the size of screen for desktop. So px is a good choice.
+    // Local variables
+    $image-size-desktop: 278px !default;// The image size should not vary with the size of screen for desktop. So px is a good choice.
 
     background-color: $white;
     border-radius: $border-radius;
@@ -15,7 +16,7 @@
     }
 
     &__image-container {
-        //flex: 0 0 278px; //Let the sibling container manage flex box size
+        //flex: 0 0 278px; // Let the sibling container manage flex box size
         margin: 0;
 
         &>img{
@@ -26,7 +27,7 @@
     }
 
     &__details {
-        flex: 0 0 calc(100% - #{$image-size-desktop} - #{$spacing * 3});
+        flex: 0 0 calc(100% - #{$image-size-desktop} - #{$spacing * 3});// Moving image size to a local variable
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -53,7 +54,7 @@
         display: flex;
         //justify-content: flex-end;
         //align-content: flex-end;
-        justify-content: space-between;//Aligning the prices to the left for better visual consistency
+        justify-content: space-between;// Aligning the prices to the left with title and ratings for better visual consistency
         align-items: flex-end;
 
         @include respond-to-max($screen-tablet-wider){
@@ -92,13 +93,14 @@
 
         &--best {
             color: $trv-maincolor-05;
-            //font-size: $font-size-s;
+            //font-size: $font-size-s;// Readability principles recommend to keep the font-size consistent. The color, weight and strike-through can visually nudge the user.
             font-weight: bold;
         }
     }
 
     &__co{
         @include respond-to-max($screen-tablet){
+            // Mobiles can be used in both left hand and right hand. CTAs should span across screen to facilitate the right hand and the left hand usage.
             align-self: stretch;
             margin-top: $spacing * 5;
         }
