@@ -43,6 +43,10 @@
 
     &__rating {
         margin: 0;
+
+        &>*{
+            margin-right: $spacing * 2;// Please update accordingly, when you add more elements
+        }
     }
 
     &__footer {

@@ -30,7 +30,7 @@
 .h5,
 .h6 {
     font-family: $headings-font-family;
-
+    font-weight: $headings-font-weight;
     .inverted-text & {
         color: $white;
     }

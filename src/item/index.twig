@@ -17,7 +17,7 @@
            aria-label="Hotel rating is {{ ratingTranslation[item.rating.overallLikingIndex] }}, {{ item.rating.overallLiking }} out of 10, based on {{ item.rating.basedOn }} reviews.">
             <strong itemprop="ratingValue">{{ item.rating.overallLiking }} / 10 </strong>
             <span> {{ ratingTranslation[item.rating.overallLikingIndex] }} </span>
-            <span> ({{ item.rating.basedOn }} Reviews)</span>
+            <small class="xsmall"> ({{ item.rating.basedOn }} Reviews)</small>
         </p>
 
         <div class="hotel-item__footer">
