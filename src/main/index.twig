@@ -1,6 +1,7 @@
 <div role="main">
     <div class="centerwrapper" role="article">
         <ul class="hotel-list">
+            <h1 class="visuallyhidden">All hotel offers</h1>
             {% for item in items %}
                 <li class="hotel-item-wrapper" key="item{{loop.index}}">
                     {% mount '../item' as 'item#{loop.index}' with {

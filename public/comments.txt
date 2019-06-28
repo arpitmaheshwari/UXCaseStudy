@@ -4,30 +4,32 @@ Specs:-
 # Browser support: Latest Edge, Chrome, Firefox and Opera. IE11 is not supported.
 # Testing locale: English
 # Responsive: Yes
-# Web accessibility standards compliant: No
-# Screen reader friendly: Yes
+# Web accessibility standards compliant: Not completely
+# Screen reader friendly: Yes, tested using NVDA tool
 # Keyboard navigatable: Yes
 # Tags for SEO: Yes
 # Tags for opengraph: Yes
 
+
 Project setup:-
 # I was not able to run the project on IE11.
-# I had to delete package-lock for project to install.
+# While running yarn for the first time, I was getting network error and had to delete the package-lock.json.
+
 
 Assumptions:-
-# CTA labelled "View deal" are links.
+# CTA labelled "View deal" are links and would take user to a new page.
 
 
-Open questions?
+Open questions:-
 # Difference between sass partials _mediaqueries.scss and _breakpoints.scss?
 # Why has developer chosen to use font-sizes in pixels?
 
 
 Decisions:-
 # I prefer box-sizing as border-box.
-# As I have not seen the designs for the complete website, therefore, I am not introducing CSS grid or any custom grid framework. Grid should only be added, when required.
+# As I have not seen the designs for the complete website, therefore, I am not sure about the need to introduce CSS grid or any custom grid framework. Grid should only be added, when required.
 # The page design has a single icon. Its not efficient to load a large font icon file for a single icon. The existing svg-xml is already an optimized solution.
-# For better UX and visual consistency, I am aligning the prices with heading and rating. Refer - https://enginess.io/insights/6-principles-design-la-donald-norman .
+# For better UX and visual consistency, I am aligning the prices with hotel name and rating. Refer - https://enginess.io/insights/6-principles-design-la-donald-norman .
 
 
 Mobile best practices:-
@@ -35,7 +37,7 @@ Mobile best practices:-
 # Http calls should be minimized. So, no web fonts and font icons.
 
 
-Semantic mark-up for main/index.twig. I believe, the melody framework is not allowing me to change the tags. Therfore, I have added the 'role' attribute for screen readers and crawlers.
+Semantic mark-up for main/index.twig. I believe, the melody framework is not allowing me to change the tags. Therefore, I have added the 'role' attribute for screen readers and crawlers.
 <main>
     <article class="centerwrapper">
         <ul class="hotel-list">

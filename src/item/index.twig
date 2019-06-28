@@ -8,15 +8,16 @@
 
 <section class="hotel-item js-hotel-item">
     <figure class="hotel-item__image-container">
-        {#Since we are not truncating the hotel's name, using longdesc insted of alt#}
+        {#Since we are not truncating the hotel's name, using longdesc instead of alt#}
         <img src="{{ item.image }}" longdesc="{{ item.name }}"/>
     </figure>
     <section class="hotel-item__details">
         <h2 class="hotel-item__hotel-name">{{ item.name }}</h2>
-        <p class="hotel-item__rating">
+        <p class="hotel-item__rating"
+           aria-label="Hotel rating is {{ ratingTranslation[item.rating.overallLikingIndex] }}, {{ item.rating.overallLiking }} out of 10, based on {{ item.rating.basedOn }} reviews.">
             <strong itemprop="ratingValue">{{ item.rating.overallLiking }} / 10 </strong>
-            {{ ratingTranslation[item.rating.overallLikingIndex] }}
-            <small> ({{ item.rating.basedOn }} Reviews)</small>
+            <span> {{ ratingTranslation[item.rating.overallLikingIndex] }} </span>
+            <span> ({{ item.rating.basedOn }} Reviews)</span>
         </p>
 
         <div class="hotel-item__footer">
@@ -34,7 +35,8 @@
                 </dl>
             </div>
             <nav class="hotel-item__co">
-                <a class="btn btn--regular btn--deal btn--icon-trailing hotel-item__cta">
+                {#Remove tab-index if you add href#}
+                <a class="btn btn--regular btn--deal btn--icon-trailing hotel-item__cta" tabindex="0">
                     <span class="btn__text">View deal</span>
                     <span role="img" class="icon--light btn__ic btn__ic--cta icon-rtl svg-revenue">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path class="svg-color--primary" fill="none" stroke="#37454d" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M9.5 7l5 5M9.5 17l5-5"></path></svg>
