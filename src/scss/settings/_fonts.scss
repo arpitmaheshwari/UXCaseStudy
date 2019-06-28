@@ -2,10 +2,13 @@
  * # Font stack declaration
  */
 /* stylelint-disable value-keyword-case  */
+
+/// Loading fonts
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap');
 /// font-family
 /// @type string
 /// @group fonts
-$font-family: Arial, Helvetica, Sans, Sans-Serif, 'Sans Serif' !default;
+$font-family: 'Open Sans', Arial, Helvetica, Sans, Sans-Serif, 'Sans Serif' !default;
 /* stylelint-enable */
 
 /*
@@ -84,6 +87,7 @@ $font-size-4xl: 80px !default;
 /// @type string
 /// @group fonts
 $headings-font-family: inherit !default;
+$headings-font-family: 'Lato', #{$font-family};
 /// headings-font-weight
 /// @type string
 /// @group fonts
