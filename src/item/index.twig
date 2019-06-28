@@ -21,10 +21,13 @@
 
         <div class="hotel-item__footer">
             <div class="hotel-item__deals">
-                <dl class="hotel-item__deal hotel-item__deal--high">
-                    <dt>{{ item.maxPartner }}</dt>
-                    <dd class="hotel-item__price hotel-item__price--high">{{ item.maxPrice }}</dd>
-                </dl>
+                {% if item.maxPrice != '' %}
+                    <dl class="hotel-item__deal hotel-item__deal--high">
+                        <dt>{{ item.maxPartner }}</dt>
+                        <dd class="hotel-item__price hotel-item__price--high">{{ item.maxPrice }}</dd>
+                    </dl>
+                {% endif %}
+
                 <dl class="hotel-item__deal hotel-item__deal--best">
                     <dt>{{ item.partner }}</dt>
                     <dd class="hotel-item__price hotel-item__price--best">{{ item.price }}</dd>

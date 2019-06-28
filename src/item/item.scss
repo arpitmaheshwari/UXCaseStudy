@@ -3,13 +3,24 @@
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     display: flex;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
     justify-content: space-between;
     font-size: $font-size-xxs;
     padding: $spacing * 2;
 
+    @include respond-to-max($screen-tablet-wider){
+        flex-direction: column;
+    }
+
     &__image-container {
-        flex: 0 0 278px;
+        //flex: 0 0 278px; //Let the sibling container manage the size
+        margin: 0;
+
+        &>img{
+            @include respond-to-max($screen-tablet-wider){
+                width: 100%;
+            }
+        }
     }
 
     &__details {
@@ -17,6 +28,11 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        margin: 0 0 0 $spacing * 3;
+
+        @include respond-to-max($screen-tablet-wider){
+            margin: $spacing * 3 0 0 0 ;
+        }
     }
 
     &__hotel-name {
@@ -29,18 +45,25 @@
 
     &__footer {
         display: flex;
-        justify-content: space-between;
+        //justify-content: flex-end;
+        //align-content: flex-end;
+        justify-content: space-between;//Aligning the prices to the left for better visual consistency
+        align-items: flex-end;
+
+        @include respond-to-max($screen-tablet-wider){
+            margin: $spacing * 3 0 0 0 ;
+        }
     }
 
     &__deals {
         display: flex;
-        margin-right: $spacing * 3;
+        //margin-right: $spacing * 3;
         //text-align: right;
     }
 
     &__deal {
-        margin: 0 14px 0 0;
         line-height: $line-height-small;
+        margin: 0 $spacing * 3 0 0 ;
 
         &--high {
             color: $trv-maincolor-04-lighter;
@@ -48,17 +71,17 @@
     }
 
     &__price {
-        //padding-left: $spacing * 3;
+        margin: 0;
+        font-size: $font-size-s;
 
         &--high {
             color: $trv-maincolor-03;
-            font-size: $font-size-xs;
             text-decoration: line-through;
         }
 
         &--best {
             color: $trv-maincolor-05;
-            font-size: $font-size-s;
+            //font-size: $font-size-s;
             font-weight: bold;
         }
     }
