@@ -4,20 +4,22 @@ Specs:-
 # Browser support: Latest Edge, Chrome, Firefox and Opera. IE11 is not supported.
 # Testing locale: English
 # Responsive: Yes
-# Web accessibility standards compliant: Not completely
-# Screen reader friendly: Yes, tested using NVDA tool
+# Web accessibility standards compliant: No (partial compliance)
+# Screen reader friendly: Yes (Tested using NVDA tool)
 # Keyboard navigatable: Yes
 # Tags for SEO: Yes
 # Tags for opengraph: Yes
+# Web crawlers (robots.txt, humans.txt and sitemap.xml): No
 
 
 Project setup:-
-# I was not able to run the project on IE11.
-# While running yarn for the first time, I was getting network error and had to delete the package-lock.json.
+# I am not able to run the project on IE11.
+# While running yarn for the first time, I was getting network error and had to delete the package-lock.json for the project to buld.
 
 
 Assumptions:-
 # CTA labelled "View deal" are links and would take user to a new page.
+# Green is the primary brand color. It is used for CTA and best room offering.
 
 
 Open questions:-
@@ -27,14 +29,16 @@ Open questions:-
 Decisions:-
 # I prefer box-sizing as border-box.
 # As I have not seen the designs for the complete website, therefore, I am not sure about the need to introduce CSS grid or any custom grid framework. Grid should only be added, when required.
-# The page design has a single icon. Its not efficient to load a large font icon file for a single icon. The existing svg-xml is already an optimized solution.
-# For better UX and visual consistency, I am aligning the prices with hotel name and rating. Refer - https://enginess.io/insights/6-principles-design-la-donald-norman .
+# I am not using font icons. The page design has a single icon. Its not efficient to load a large font icon file for a single icon. The existing svg-xml is already an optimized solution.
+# For better UX and visual consistency, I am aligning the prices with hotel name and rating. Refer - https://enginess.io/insights/6-principles-design-la-donald-norman.
+# Redicing the font size of ratings to reduce the importance of the information.
+# Using font 'Lato' for headings and CTAs. Using 'Open Sans' for content.
 
 
 Mobile best practices:-
 # The recommended size of CTA is 44px in-order to capture thumb clicks.
 # Http calls should be minimized.
-# Mobiles can be used in both left hand and right hand. CTAs should span across screen to facilitate the right hand and the left hand usage.
+# Mobiles can be used in both left hand and right hand. In portrait mode, CTAs should span across screen to facilitate the right hand and the left hand usage.
 
 
 Semantic mark-up for main/index.twig. I guess, the melody framework is not allowing me to change the tags. Therefore, I have added the 'role' attribute for screen readers and web crawlers.

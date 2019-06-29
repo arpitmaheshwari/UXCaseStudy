@@ -12,6 +12,7 @@
         <img src="{{ item.image }}" longdesc="{{ item.name }}"/>
     </figure>
     <section class="hotel-item__details">
+        {#Should consult the design team to reduce the font-size to 28px#}
         <h2 class="hotel-item__hotel-name h2">{{ item.name }}</h2>
         <p class="hotel-item__rating"
            aria-label="Hotel rating is {{ ratingTranslation[item.rating.overallLikingIndex] }}, {{ item.rating.overallLiking }} out of 10, based on {{ item.rating.basedOn }} reviews.">

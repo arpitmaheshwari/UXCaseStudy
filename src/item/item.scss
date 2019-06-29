@@ -1,6 +1,6 @@
 .hotel-item {
     // Local variables
-    $image-size-desktop: 278px !default;// The image size should not vary with the size of screen for desktop. So px is a good choice.
+    $image-size-desktop: 278px !default;// The image size doesn't varies with the size of screen for desktop. So, using px not %.
 
     background-color: $white;
     border-radius: $border-radius;
@@ -46,7 +46,7 @@
         margin: 0;
 
         &>*{
-            margin-right: $spacing * 2;// Please update accordingly, when you add more elements
+            margin-right: $spacing * 2;// Update accordingly, when more elements are added
         }
     }
 
